@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="name"
+            type="String" />
+
+        <variable
+            name="color"
+            type="Integer" />
+    </data>
+
+    <com.hinacle.base.widget.corner.RoundCornerLinearLayout
+        app:round_corner_radius="10dp"
+        android:background="@{color}"
+        android:gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <com.hinacle.base.widget.corner.RoundCornerImageView
+            app:round_corner_half_size_radius="true"
+            android:layout_width="15dp"
+            android:src="@color/app_white"
+            android:layout_height="15dp"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AppText"
+
+            android:paddingHorizontal="30dp"
+            android:paddingVertical="10dp"
+            android:text="@{name}" />
+    </com.hinacle.base.widget.corner.RoundCornerLinearLayout>
+
+</layout>

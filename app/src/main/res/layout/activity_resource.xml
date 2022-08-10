@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/widget_title_normal"
+            app:title="@{`资源处理`}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AppText"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="10dp"
+            android:background="@color/app_blue_0"
+            android:gravity="center"
+            android:text="@string/resource_text"
+            android:textColor="@color/app_white" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/codeTv"
+            style="@style/AppText" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AppText"
+            android:id="@+id/resourceTv" />
+    </LinearLayout>
+</layout>

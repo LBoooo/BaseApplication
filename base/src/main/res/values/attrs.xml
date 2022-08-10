@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--                  圆角 start                    -->
+    <!--    设置圆角半径为宽高最大值的一半-->
+    <attr name="round_corner_half_size_radius" format="boolean" />
+    <!--    统一设置圆角半径-->
+    <attr name="round_corner_radius" format="dimension" />
+    <!--    单独设置四个角的圆角半径-->
+    <attr name="round_corner_top_left_radius" format="dimension" />
+    <attr name="round_corner_top_right_radius" format="dimension" />
+    <attr name="round_corner_bottom_left_radius" format="dimension" />
+    <attr name="round_corner_bottom_right_radius" format="dimension" />
+    <!--    描边颜色-->
+    <attr name="round_corner_stroke_color" format="color|reference" />
+    <!--    描边大小-->
+    <attr name="round_corner_stroke_width" format="dimension" />
+    <attr name="round_corner_stroke_type" format="enum">
+        <enum name="inside" value="0" />
+    </attr>
+    <declare-styleable name="round_corner_layout_attrs">
+        <attr name="round_corner_half_size_radius" />
+        <attr name="round_corner_radius" />
+        <attr name="round_corner_top_left_radius" />
+        <attr name="round_corner_top_right_radius" />
+        <attr name="round_corner_bottom_left_radius" />
+        <attr name="round_corner_bottom_right_radius" />
+        <attr name="round_corner_stroke_color" />
+        <attr name="round_corner_stroke_width" />
+        <attr name="round_corner_stroke_type" />
+    </declare-styleable>
+    <declare-styleable name="RoundCornerFrameLayout">
+        <attr name="round_corner_half_size_radius" />
+        <attr name="round_corner_radius" />
+        <attr name="round_corner_top_left_radius" />
+        <attr name="round_corner_top_right_radius" />
+        <attr name="round_corner_bottom_left_radius" />
+        <attr name="round_corner_bottom_right_radius" />
+        <attr name="round_corner_stroke_color" />
+        <attr name="round_corner_stroke_width" />
+        <attr name="round_corner_stroke_type" />
+    </declare-styleable>
+    <declare-styleable name="RoundCornerConstraintLayout">
+        <attr name="round_corner_half_size_radius" />
+        <attr name="round_corner_radius" />
+        <attr name="round_corner_top_left_radius" />
+        <attr name="round_corner_top_right_radius" />
+        <attr name="round_corner_bottom_left_radius" />
+        <attr name="round_corner_bottom_right_radius" />
+        <attr name="round_corner_stroke_color" />
+        <attr name="round_corner_stroke_width" />
+        <attr name="round_corner_stroke_type" />
+    </declare-styleable>
+    <declare-styleable name="RoundCornerLinearLayout">
+        <attr name="round_corner_half_size_radius" />
+        <attr name="round_corner_radius" />
+        <attr name="round_corner_top_left_radius" />
+        <attr name="round_corner_top_right_radius" />
+        <attr name="round_corner_bottom_left_radius" />
+        <attr name="round_corner_bottom_right_radius" />
+        <attr name="round_corner_stroke_color" />
+        <attr name="round_corner_stroke_width" />
+        <attr name="round_corner_stroke_type" />
+    </declare-styleable>
+    <declare-styleable name="RoundCornerRelativeLayout">
+        <attr name="round_corner_half_size_radius" />
+        <attr name="round_corner_radius" />
+        <attr name="round_corner_top_left_radius" />
+        <attr name="round_corner_top_right_radius" />
+        <attr name="round_corner_bottom_left_radius" />
+        <attr name="round_corner_bottom_right_radius" />
+        <attr name="round_corner_stroke_color" />
+        <attr name="round_corner_stroke_width" />
+        <attr name="round_corner_stroke_type" />
+    </declare-styleable>
+    <declare-styleable name="RoundCornerTextView">
+        <attr name="round_corner_half_size_radius" />
+        <attr name="round_corner_radius" />
+        <attr name="round_corner_top_left_radius" />
+        <attr name="round_corner_top_right_radius" />
+        <attr name="round_corner_bottom_left_radius" />
+        <attr name="round_corner_bottom_right_radius" />
+        <attr name="round_corner_stroke_color" />
+        <attr name="round_corner_stroke_width" />
+        <attr name="round_corner_stroke_type" />
+    </declare-styleable>
+    <declare-styleable name="RoundCornerImageView">
+        <attr name="round_corner_half_size_radius" />
+        <attr name="round_corner_radius" />
+        <attr name="round_corner_top_left_radius" />
+        <attr name="round_corner_top_right_radius" />
+        <attr name="round_corner_bottom_left_radius" />
+        <attr name="round_corner_bottom_right_radius" />
+        <attr name="round_corner_stroke_color" />
+        <attr name="round_corner_stroke_width" />
+        <attr name="round_corner_stroke_type" />
+    </declare-styleable>
+    <declare-styleable name="RoundCornerButton">
+        <attr name="round_corner_half_size_radius" />
+        <attr name="round_corner_radius" />
+        <attr name="round_corner_top_left_radius" />
+        <attr name="round_corner_top_right_radius" />
+        <attr name="round_corner_bottom_left_radius" />
+        <attr name="round_corner_bottom_right_radius" />
+        <attr name="round_corner_stroke_color" />
+        <attr name="round_corner_stroke_width" />
+        <attr name="round_corner_stroke_type" />
+    </declare-styleable>
+    <!--                  圆角 end                    -->
+    <!--                  裁剪 start                    -->
+    <attr name="krop_shape" format="enum" >
+        <enum name="oval" value="0"/>
+        <enum name="rect" value="1"/>
+    </attr>
+    <declare-styleable name="KropView">
+        <attr name="krop_offset" format="dimension"/>
+        <attr name="krop_aspectX" format="integer"/>
+        <attr name="krop_aspectY" format="integer"/>
+        <attr name="krop_overlayColor" format="color"/>
+        <attr name="krop_overlay" format="reference"/>
+        <attr name="krop_shape" />
+    </declare-styleable>
+    <!--                  裁剪 end                    -->
+    <!--                  toggle button start                    -->
+    <declare-styleable name="ThemedButton">
+        <attr name="toggle_text" format="string"/>
+        <attr name="android:text" format="string"/>
+        <attr name="toggle_selectedText" format="string"/>
+        <attr name="toggle_textSize" format="dimension"/>
+        <attr name="toggle_textColor" format="color"/>
+        <attr name="toggle_fontFamily" format="string"/>
+        <attr name="toggle_backgroundColor" format="color" />
+        <attr name="toggle_selectedBackgroundColor" format="color" />
+        <attr name="toggle_selectedTextColor" format="color" />
+        <attr name="toggle_borderWidth" format="dimension" />
+        <attr name="toggle_borderColor" format="color" />
+        <attr name="toggle_selectedBorderWidth" format="dimension" />
+        <attr name="toggle_selectedBorderColor" format="color" />
+        <attr name="toggle_btnCornerRadius" format="dimension" />
+        <attr name="toggle_icon" format="reference" />
+        <attr name="toggle_selectedIcon" format="reference" />
+        <attr name="toggle_circularCornerRadius" format="boolean" />
+        <attr name="toggle_iconColor" format="color" />
+        <attr name="toggle_padding" format="dimension" />
+        <attr name="toggle_paddingHorizontal" format="dimension" />
+        <attr name="toggle_paddingVertical" format="dimension" />
+        <attr name="toggle_paddingRight" format="dimension" />
+        <attr name="toggle_paddingTop" format="dimension" />
+        <attr name="toggle_paddingLeft" format="dimension" />
+        <attr name="toggle_paddingBottom" format="dimension" />
+        <attr name="toggle_textPadding" format="dimension" />
+        <attr name="toggle_textPaddingHorizontal" format="dimension" />
+        <attr name="toggle_textPaddingVertical" format="dimension" />
+        <attr name="toggle_textPaddingRight" format="dimension" />
+        <attr name="toggle_textPaddingTop" format="dimension" />
+        <attr name="toggle_textPaddingLeft" format="dimension" />
+        <attr name="toggle_textPaddingBottom" format="dimension" />
+        <attr name="toggle_iconPadding" format="dimension" />
+        <attr name="toggle_iconPaddingHorizontal" format="dimension" />
+        <attr name="toggle_iconPaddingVertical" format="dimension" />
+        <attr name="toggle_iconPaddingRight" format="dimension" />
+        <attr name="toggle_iconPaddingTop" format="dimension" />
+        <attr name="toggle_iconPaddingLeft" format="dimension" />
+        <attr name="toggle_iconPaddingBottom" format="dimension" />
+        <attr name="toggle_iconGravity">
+            <flag name="bottom" value="80" />
+            <flag name="center" value="17" />
+            <flag name="center_horizontal" value="1" />
+            <flag name="center_vertical" value="16" />
+            <flag name="clip_horizontal" value="8" />
+            <flag name="clip_vertical" value="128" />
+            <flag name="end" value="8388613" />
+            <flag name="fill" value="119" />
+            <flag name="fill_horizontal" value="7" />
+            <flag name="fill_vertical" value="112" />
+            <flag name="left" value="3" />
+            <flag name="right" value="5" />
+            <flag name="start" value="8388611" />
+            <flag name="top" value="48" />
+        </attr>
+        <attr name="toggle_textGravity">
+            <flag name="bottom" value="80" />
+            <flag name="center" value="17" />
+            <flag name="center_horizontal" value="1" />
+            <flag name="center_vertical" value="16" />
+            <flag name="clip_horizontal" value="8" />
+            <flag name="clip_vertical" value="128" />
+            <flag name="end" value="8388613" />
+            <flag name="fill" value="119" />
+            <flag name="fill_horizontal" value="7" />
+            <flag name="fill_vertical" value="112" />
+            <flag name="left" value="3" />
+            <flag name="right" value="5" />
+            <flag name="start" value="8388611" />
+            <flag name="top" value="48" />
+        </attr>
+        <attr name="toggle_textAlignment">
+            <flag name="inherit" value="0" />
+            <flag name="gravity" value="1" />
+            <flag name="textStart" value="2" />
+            <flag name="textEnd" value="3" />
+            <flag name="center" value="4" />
+            <flag name="viewStart" value="5" />
+            <flag name="viewEnd" value="6" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="ThemedToggleButtonGroup">
+        <attr name="toggle_selectableAmount" format="integer"/>
+        <attr name="toggle_requiredAmount" format="integer"/>
+        <attr name="toggle_horizontalSpacing" format="dimension"/>
+        <attr name="toggle_selectAnimation" format="enum">
+            <enum name="none" value="0" />
+            <enum name="circular_reveal" value="1" />
+            <enum name="fade" value="2" />
+            <enum name="horizontal_slide" value="3" />
+            <enum name="vertical_slide" value="4" />
+            <enum name="horizontal_window" value="5" />
+            <enum name="vertical_window" value="6" />
+        </attr>
+    </declare-styleable>
+    <!--                  toggle button end                    -->
+    <!--                  switch button start                    -->
+    <declare-styleable name="SwitchView">
+        <attr name="checked" format="boolean" />
+        <attr name="color_on" format="color" />
+        <attr name="color_off" format="color" />
+    </declare-styleable>
+    <!--                  switch button end                    -->
+    <!--                  SwitchIcon button start                    -->
+    <declare-styleable name="SwitchIconView">
+        <attr name="si_tint_color" format="color"/>
+        <attr name="si_animation_duration" format="integer"/>
+        <attr name="si_disabled_alpha" format="float"/>
+        <attr name="si_disabled_color" format="color"/>
+        <attr name="si_enabled" format="boolean"/>
+        <attr name="si_no_dash" format="boolean"/>
+    </declare-styleable>
+    <!--                  SwitchIcon button end                    -->
+    <!--                  stateLayout start                    -->
+    <declare-styleable name="StateLayout">
+        <attr name="empty_layout" format="reference" />
+        <attr name="error_layout" format="reference" />
+        <attr name="loading_layout" format="reference" />
+    </declare-styleable>
+    <!--                  stateLayout end                    -->
+</resources>

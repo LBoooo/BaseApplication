@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/widget_title_normal"
+            app:title="@{`更多`}"/>
+
+
+        <EditText
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:id="@+id/exampleTv"
+            android:padding="15dp"
+            android:text="Kotlin is a modern but already mature programming language aimed to make developers happier. It’s concise, safe, interoperable with Java and other languages, and provides many ways to reuse code between multiple platforms for productive programming.Pick it up to start building powerful applications!"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:id="@+id/copyBtn"
+            android:text="复制文本"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:id="@+id/intentBtn"
+            android:text="跳转事件"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</layout>

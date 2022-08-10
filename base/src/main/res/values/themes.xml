@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="App.Theme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/app_white</item>
+        <item name="colorPrimaryVariant">@color/app_white</item>
+        <item name="colorOnPrimary">@color/app_white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/app_green</item>
+        <item name="colorSecondaryVariant">@color/app_blue</item>
+        <item name="colorOnSecondary">@color/app_black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/app_white</item>
+
+<!--        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/app_white</item>-->
+<!--        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@drawable/svg_net_error</item>-->
+<!--        <item name="android:windowSplashScreenAnimationDuration" tools:targetApi="s">3000</item>-->
+<!--        <item name="android:windowSplashScreenIconBackgroundColor" tools:targetApi="s">@color/app_white</item>-->
+<!--        <item name="android:windowSplashScreenBrandingImage" tools:targetApi="s">@drawable/bg_bubble_dialog</item>-->
+
+    </style>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.hinacle.baseapplication.main.HomeFragment"
+        android:label="homeFragment"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/recommendFragment"
+        android:name="com.hinacle.baseapplication.main.RecommendFragment"
+        android:label="recommendFragment"
+        tools:layout="@layout/fragment_recommend" />
+    <fragment
+        android:id="@+id/messageFragment"
+        android:name="com.hinacle.baseapplication.main.MessageFragment"
+        android:label="messageFragment"
+        tools:layout="@layout/fragment_message" />
+    <fragment
+        android:id="@+id/mineFragment"
+        android:name="com.hinacle.baseapplication.main.MineFragment"
+        android:label="mineFragment"
+        tools:layout="@layout/fragment_mine" />
+
+</navigation>

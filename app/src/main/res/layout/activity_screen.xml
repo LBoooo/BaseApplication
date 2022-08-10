@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="screenWidth"
+            type="String" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/app_grey_0"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include
+            android:id="@+id/title"
+            layout="@layout/widget_title_normal"
+            app:title="@{`屏幕相关`}"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/screenMessageTv"
+            android:text="@{screenWidth}"
+           style="@style/AppText"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/appCompatButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="setScreenPortrait"
+            android:text="设置竖屏"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/screenMessageTv" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/appCompatButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="setScreenLandscape"
+            android:text="设置横屏"
+            app:layout_constraintBottom_toBottomOf="@+id/appCompatButton"
+            app:layout_constraintStart_toEndOf="@+id/appCompatButton"
+            app:layout_constraintTop_toTopOf="@+id/appCompatButton" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/appCompatButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="toggleScreenOrientation"
+            android:text="横竖屏切换"
+            app:layout_constraintBottom_toBottomOf="@+id/appCompatButton"
+            app:layout_constraintStart_toEndOf="@+id/appCompatButton2"
+            app:layout_constraintTop_toTopOf="@+id/appCompatButton" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="lockScreenOrientation"
+            android:text="锁定/解锁屏幕方向"
+            app:layout_constraintBottom_toBottomOf="@+id/appCompatButton"
+            app:layout_constraintStart_toEndOf="@+id/appCompatButton3"
+            app:layout_constraintTop_toTopOf="@+id/appCompatButton" />
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/appCompatButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="isFullScreen"
+            android:text="是否全屏"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatButton" />
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/appCompatButton7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="setFullScreen"
+            android:text="设置全屏"
+            app:layout_constraintStart_toEndOf="@+id/appCompatButton4"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatButton" />
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="更多扩展函数请看ScreenUtil"
+            app:layout_constraintStart_toEndOf="@+id/appCompatButton7"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatButton" />
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/appCompatButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="statusBarColor"
+            android:text="设置状态栏颜色"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatButton4" />
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/appCompatButton6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="immersive"
+            android:background="@color/app_orange_0"
+            android:text="设置状态栏颜色为view颜色"
+            app:layout_constraintStart_toEndOf="@+id/appCompatButton5"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatButton4" />
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="exitImmersive"
+            android:text="退出沉浸状态栏"
+            app:layout_constraintStart_toEndOf="@+id/appCompatButton6"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatButton4" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

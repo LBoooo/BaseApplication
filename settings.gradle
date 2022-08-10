@@ -1,0 +1,23 @@
+pluginManagement {
+    repositories {
+        maven { url "https://maven.aliyun.com/repository/central" }
+        maven { url "https://maven.aliyun.com/repository/public" }
+        maven { url "https://jitpack.io" }
+        mavenCentral()
+        gradlePluginPortal()
+        google()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven { url "https://maven.aliyun.com/repository/central" }
+        maven { url "https://maven.aliyun.com/repository/public" }
+        maven { url "https://jitpack.io" }
+        mavenCentral()
+        google()
+    }
+}
+rootProject.name = "BaseApplication"
+include ':app'
+include ':base'

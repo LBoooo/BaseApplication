@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/title"
+            layout="@layout/widget_title_with_button"
+            app:buttonColor="@{@color/app_blue}"
+            app:buttonText="@{`完成`}"
+            app:title="@{`裁剪图片`}" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <com.hinacle.base.widget.album.krop.KropView
+                android:id="@+id/kropView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:krop_aspectX="1"
+                app:krop_aspectY="1"
+                app:krop_overlayColor="@color/app_translucent"
+                app:krop_shape="rect" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,67 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlinx-serialization'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+}
+
+android {
+    namespace 'com.hinacle.base'
+    compileSdk 32
+    defaultConfig {
+        minSdk 23
+        targetSdk 32
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            //启用代码缩减、混淆处理和优化
+            minifyEnabled true
+            //默认混淆文件（无内容需要自己添加）
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        // 启用dataBinding
+        dataBinding = true
+        // 启用viewBinding 如果您希望在生成绑定类时忽略某个布局文件，请将 属性添加到相应布局文件的根视图中：tools:viewBindingIgnore="true"
+        viewBinding = true
+    }
+}
+
+dependencies {
+    api("androidx.core:core-ktx:1.7.0")
+
+    appFrame.each {
+        if (it.key.toString().startsWith("api")) {
+            api(it.value)
+        }else {
+            implementation(it.value)
+        }
+    }
+
+    appThird.each {
+        if (it.key.toString().startsWith("kapt")) {
+            kapt(it.value)
+        } else {
+            api(it.value)
+        }
+    }
+
+    compileOnly.each { debugImplementation(it.value) }
+
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}

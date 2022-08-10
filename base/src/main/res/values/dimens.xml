@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="app_text_8">8sp</dimen>
+    <dimen name="app_text_9">9sp</dimen>
+    <dimen name="app_text_10">10sp</dimen>
+    <dimen name="app_text_11">11sp</dimen>
+    <dimen name="app_text_12">12sp</dimen>
+    <dimen name="app_text_13">13sp</dimen>
+    <dimen name="app_text_14">14sp</dimen>
+    <dimen name="app_text_15">15sp</dimen>
+    <dimen name="app_text_16">16sp</dimen>
+    <dimen name="app_text_17">17sp</dimen>
+    <dimen name="app_text_18">18sp</dimen>
+    <dimen name="app_text_19">19sp</dimen>
+    <dimen name="app_text_20">20sp</dimen>
+    <dimen name="app_text_30">30sp</dimen>
+
+
+    <dimen name="app_title">48dp</dimen>
+    <dimen name="app_title_space">58dp</dimen>
+
+    <dimen name="app_skelet_radius">8dp</dimen>
+    <dimen name="app_skelet_line_spacing">4dp</dimen>
+
+    <dimen name="switcher_elevation">4dp</dimen>
+    <dimen name="switcher_height">26dp</dimen>
+    <dimen name="switcher_width">46dp</dimen>
+
+</resources>

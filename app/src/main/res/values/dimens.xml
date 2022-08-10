@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<resources>
+    <dimen name="resource_dimen_h">30dp</dimen>
+    <dimen name="resource_dimen_w">150dp</dimen>
+</resources>

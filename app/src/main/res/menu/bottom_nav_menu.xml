@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/svg_icon_home"
+        android:title="@string/home_title" />
+    <item
+        android:id="@+id/recommendFragment"
+        android:icon="@drawable/svg_icon_recommend"
+        android:title="@string/recommend_title" />
+    <item
+        android:id="@+id/messageFragment"
+        android:icon="@drawable/svg_icon_message"
+        android:title="@string/message_title" />
+    <item
+        android:id="@+id/mineFragment"
+        android:icon="@drawable/svg_icon_mine"
+        android:title="@string/mine_title" />
+</menu>

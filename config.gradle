@@ -1,0 +1,88 @@
+ext {
+    // 框架库 官方稳定 最优做法 api:全模块 impl:本模块
+    appFrame = [
+            "api_appcompat"          : "androidx.appcompat:appcompat:1.4.2",
+            "api_fragmentx"          : "androidx.fragment:fragment-ktx:1.5.1",
+            "api_activityx"          : "androidx.activity:activity-ktx:1.5.1",
+            "api_material"           : "com.google.android.material:material:1.5.0",
+            "api_collection"         : "androidx.collection:collection-ktx:1.2.0",
+            // lifecycle-viewModel
+            "api_lifecycle_viewmodel": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1",
+            // Kotlin serialization 由一个编译器插件组成，它为可序列化的类生成访问者代码、具有核心序列化 API 的运行时库以及具有各种序列化格式的支持库。
+            // 支持标记为 @Serializable 的 Kotlin 类和标准集合。
+            // 提供 JSON、Protobuf、CBOR、Hocon 和 Properties 格式。
+            // 完整的多平台支持：JVM、JS 和 Native。
+            "api_serialization"      : "org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3",
+            // retrofit2
+            "api_retrofit2"          : "com.squareup.retrofit2:retrofit:2.9.0",
+            // rxAndroid
+            "api_rxandroid"          : "io.reactivex.rxjava3:rxandroid:3.0.0",
+            // 图片加载框架 kotlin推荐
+            "api_coil"               : "io.coil-kt:coil:2.1.0",
+            "api_coil_gif"           : "io.coil-kt:coil-gif:2.1.0",
+            // startup
+            // 应用程序启动库提供了一种在应用程序启动时初始化组件的简单、高性能的方法。库开发人员和应用程序开发人员都可以使用应用程序启动来简化启动序列并显式设置初始化顺序。
+            //App Startup 允许您定义共享单个内容提供商的组件初始值设定项，而不是为需要初始化的每个组件定义单独的内容提供商。这可以显著缩短应用启动时间。
+            "impl_startup"           : "androidx.startup:startup-runtime:1.1.1",
+            // datastore preferences
+            // Jetpack DataStore 是一种数据存储解决方案，允许您使用协议缓冲区存储键值对或类型化对象。 DataStore 使用 Kotlin 协程和 Flow 以异步、一致的事务方式存储数据。
+            // DataStore 提供两种不同的实现：Preferences DataStore 和 Proto DataStore。
+            // 这里使用 Preferences DataStore
+            // Preferences DataStore 使用键存储和访问数据。 此实现不需要预定义的架构，也不确保类型安全。
+            // Proto DataStore 将数据作为自定义数据类型的实例进行存储。 此实现要求您使用协议缓冲区来定义架构，但可以确保类型安全。
+            "impl_datastore"         : "androidx.datastore:datastore-preferences:1.0.0",
+            "impl_datastore_core"    : "androidx.datastore:datastore-preferences-core:1.0.0",
+            // rxjava 生命周期 解决不完整的订阅可能会导致内存泄漏。
+            "impl_rxlifecycle"       : "com.trello.rxlifecycle4:rxlifecycle-android-lifecycle-kotlin:4.0.2"
+    ]
+
+
+    // 优秀的三方库 可替换
+    appThird = [
+            // google FlexboxLayout FlexboxLayoutManager 智能换行
+            "flexbox"             : "com.google.android.flexbox:flexbox:3.0.0",
+            // 网络请求
+            "net"                 : "com.github.liangjingkanji:Net:3.4.12",
+            // 适配方案 今日头条方案
+            "autosize"            : "me.jessyan:autosize:1.2.1",
+            // 委托viewBinding 无反射
+            "viewbinding_delegate": "com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.6",
+            // dialog fragment 简单使用 扩展函数支持
+            "dialog"              : "com.github.LBoooo:AppDialog:1.0.2",
+            // 图片选择框架 支持混合选择 高star
+            "album"               : "com.github.HuanTanSheng:EasyPhotos:3.1.5",
+            // 查看大图 使用coil支持 高star
+            "photo_core"          : "com.github.mikaelzero.mojito:mojito:1.8.7",
+            "photo_coil_loader"   : "com.github.mikaelzero.mojito:coilimageloader:1.8.7",
+            "photo_load"          : "com.github.mikaelzero.mojito:SketchImageViewLoader:1.8.7",
+            // 底部导航栏
+            "bottom_bar"          : "com.github.ibrahimsn98:SmoothBottomBar:1.7.9",
+            // 透明状态栏
+            "status_bar"          : "com.github.liangjingkanji:StatusBar:2.0.2",
+            // 加载骨骼框架 骨架屏
+            "koleton"             : "com.ericktijerou.koleton:koleton:1.0.0-beta01",
+            "shimmer"             : "com.facebook.shimmer:shimmer:0.5.0",
+            // 刷新样式 核心必须依赖 使用经典样式 刷新加载最高star
+            "refresh-layout"      : "io.github.scwang90:refresh-layout-kernel:2.0.5",
+            "refresh-header"      : "io.github.scwang90:refresh-header-classics:2.0.5",
+            "refresh-footer"      : "io.github.scwang90:refresh-footer-classics:2.0.5",
+            // 列表适配器  kotlin adapter最高star
+            "fastadapter"         : "com.mikepenz:fastadapter:5.6.0",
+            "fastadapter_ex"      : "com.mikepenz:fastadapter-extensions-binding:5.6.0",
+            // 权限
+            "permissions"         : "com.github.permissions-dispatcher:permissionsdispatcher:4.9.2",
+            "kapt_permissions"    : "com.github.permissions-dispatcher:permissionsdispatcher-processor:4.9.2",
+            // banner
+            "banner"              : "com.github.zhpanvip:bannerviewpager:3.5.6",
+            // 底部弹窗 自己实现也可以 简单功能
+            "bottom_sheet_dialog" : "com.github.Vove7.BottomDialog:bottomdialog:2.3.0"
+    ]
+
+    // 只在模块使用 如不需要可删除
+    compileOnly = [
+            // 通知栏监听网络日志 只测试起效
+            "http_catch": "com.github.chuckerteam.chucker:library:3.5.2",
+            // 内存泄漏检测 只测试起效
+            "leakcanary": "com.squareup.leakcanary:leakcanary-android:2.9.1"
+    ]
+}

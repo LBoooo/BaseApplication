@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+      <include
+          layout="@layout/widget_title_with_button"
+          app:buttonColor="@{@color/app_blue_0}"
+          app:buttonText="@{`完成`}"
+          app:title="@{`带按钮的标题栏`}" />
+
+      <include layout="@layout/widget_title_normal"
+          app:title="@{`普通标题栏`}"/>
+
+
+      <androidx.core.widget.NestedScrollView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+          <LinearLayout
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+              <com.google.android.flexbox.FlexboxLayout
+                  android:padding="15dp"
+                  app:flexWrap="wrap"
+                  app:alignItems="stretch"
+                  app:alignContent="stretch"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content">
+                  <androidx.appcompat.widget.AppCompatTextView
+                      android:text="android"
+                      android:paddingVertical="10dp"
+                      android:paddingHorizontal="15dp"
+                      android:background="@color/app_blue_0"
+                      android:textColor="@color/white"
+                      style="@style/AppText"/>
+                  <androidx.appcompat.widget.AppCompatTextView
+                      android:text="kotlin"
+                      android:paddingVertical="10dp"
+                      android:paddingHorizontal="15dp"
+                      android:background="@color/app_blue_1"
+                      android:textColor="@color/white"
+                      style="@style/AppText"/>
+                  <androidx.appcompat.widget.AppCompatTextView
+                      android:text="java"
+                      android:paddingVertical="10dp"
+                      android:paddingHorizontal="15dp"
+                      android:background="@color/app_yellow_0"
+                      android:textColor="@color/white"
+                      style="@style/AppText"/>
+                  <androidx.appcompat.widget.AppCompatTextView
+                      android:text="C#"
+                      android:paddingVertical="10dp"
+                      android:paddingHorizontal="15dp"
+                      android:background="@color/app_orange_0"
+                      android:textColor="@color/white"
+                      style="@style/AppText"/>
+
+                  <androidx.appcompat.widget.AppCompatTextView
+                      android:text="unity"
+                      android:paddingVertical="10dp"
+                      android:paddingHorizontal="15dp"
+                      android:background="@color/app_orange_1"
+                      android:textColor="@color/white"
+                      style="@style/AppText"/>
+
+                  <androidx.appcompat.widget.AppCompatTextView
+                      android:text="C++"
+                      android:paddingVertical="10dp"
+                      android:paddingHorizontal="15dp"
+                      android:background="@color/app_orange_2"
+                      android:textColor="@color/white"
+                      style="@style/AppText"/>
+                  <androidx.appcompat.widget.AppCompatTextView
+                      android:text="mySQL"
+                      android:paddingVertical="10dp"
+                      android:paddingHorizontal="15dp"
+                      android:background="@color/app_green_0"
+                      android:textColor="@color/white"
+                      style="@style/AppText"/>
+
+                  <androidx.appcompat.widget.AppCompatTextView
+                      android:text="SQLite"
+                      android:paddingVertical="10dp"
+                      android:paddingHorizontal="15dp"
+                      android:background="@color/app_green_1"
+                      android:textColor="@color/white"
+                      style="@style/AppText"/>
+              </com.google.android.flexbox.FlexboxLayout>
+
+              <androidx.recyclerview.widget.RecyclerView
+                  android:layout_width="match_parent"
+                  android:id="@+id/recyclerView"
+                  app:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
+                  android:layout_height="wrap_content"/>
+
+              <com.hinacle.base.widget.toggle.ThemedToggleButtonGroup
+                  android:id="@+id/themedButtonGroup"
+                  android:layout_width="match_parent"
+                  android:layout_height="155dp"
+                  android:layout_marginHorizontal="32dp"
+                  app:alignItems="center">
+
+                  <com.hinacle.base.widget.toggle.ThemedButton
+                      android:id="@+id/btnMultipleChoice"
+                      android:layout_width="0dp"
+                      android:layout_height="145dp"
+                      app:layout_flexGrow="1"
+                      app:toggle_selectedTextColor="@android:color/white"
+                      app:toggle_selectedBackgroundColor="@color/app_green_0"
+                      app:toggle_icon="@drawable/svg_icon_group"
+                      app:toggle_iconGravity="top|center"
+                      app:toggle_iconPaddingTop="15dp"
+                      app:toggle_iconPaddingHorizontal="15dp"
+                      app:toggle_textPaddingBottom="20dp"
+                      app:toggle_text="Multiple choice"
+                      app:toggle_textGravity="bottom|center" />
+
+                  <com.hinacle.base.widget.toggle.ThemedButton
+                      android:id="@+id/btnTyped"
+                      android:layout_width="0dp"
+                      android:layout_height="145dp"
+                      app:layout_flexGrow="1"
+                      app:toggle_selectedTextColor="@android:color/white"
+                      app:toggle_selectedBackgroundColor="@color/app_orange_0"
+                      app:toggle_icon="@drawable/svg_icon_home"
+                      app:toggle_iconGravity="top|center"
+                      app:toggle_iconPaddingTop="15dp"
+                      app:toggle_iconPaddingHorizontal="15dp"
+                      app:toggle_textPaddingBottom="20dp"
+                      app:toggle_text="Spellcheck mode"
+                      app:toggle_textGravity="bottom|center" />
+
+                  <com.hinacle.base.widget.toggle.ThemedButton
+                      android:id="@+id/btnMemory"
+                      android:layout_width="0dp"
+                      android:layout_height="145dp"
+                      app:layout_flexGrow="1"
+                      app:toggle_selectedTextColor="@android:color/white"
+                      app:toggle_selectedBackgroundColor="@color/app_blue_0"
+                      app:toggle_icon="@drawable/svg_icon_message"
+                      app:toggle_iconGravity="top|center"
+                      app:toggle_iconPaddingTop="15dp"
+                      app:toggle_iconPaddingHorizontal="15dp"
+                      app:toggle_textPaddingBottom="20dp"
+                      app:toggle_text="Time challenge"
+                      app:toggle_textGravity="bottom|center" />
+
+              </com.hinacle.base.widget.toggle.ThemedToggleButtonGroup>
+
+              <TextView
+                  android:id="@+id/tvText"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="20dp"
+                  android:textAlignment="center"
+                  android:textColor="#5e6fed"
+                  android:text=""/>
+
+              <HorizontalScrollView
+                  android:layout_width="match_parent"
+                  android:layout_height="45dp"
+                  android:fillViewport="true"
+                  android:scrollbars="none">
+
+                  <com.hinacle.base.widget.toggle.ThemedToggleButtonGroup
+                      android:id="@+id/time"
+                      android:layout_width="wrap_content"
+                      android:layout_height="45dp"
+                      android:paddingHorizontal="20dp"
+                      app:alignItems="center">
+
+                      <com.hinacle.base.widget.toggle.ThemedButton
+                          android:id="@+id/btn1"
+                          android:layout_width="wrap_content"
+                          android:layout_height="38dp"
+                          app:layout_flexShrink="0"
+                          app:toggle_text="5:30PM" />
+
+                      <com.hinacle.base.widget.toggle.ThemedButton
+                          android:id="@+id/btn2"
+                          android:layout_width="wrap_content"
+                          android:layout_height="38dp"
+                          app:layout_flexShrink="0"
+                          app:toggle_text="6:00PM" />
+
+                      <com.hinacle.base.widget.toggle.ThemedButton
+                          android:id="@+id/btn3"
+                          android:layout_width="wrap_content"
+                          android:layout_height="38dp"
+                          app:layout_flexShrink="0"
+                          app:toggle_text="6:30PM" />
+
+                      <com.hinacle.base.widget.toggle.ThemedButton
+                          android:id="@+id/btn4"
+                          android:layout_width="wrap_content"
+                          android:layout_height="38dp"
+                          app:layout_flexShrink="0"
+                          app:toggle_text="7:00PM" />
+
+                      <com.hinacle.base.widget.toggle.ThemedButton
+                          android:id="@+id/btn5"
+                          android:layout_width="wrap_content"
+                          android:layout_height="38dp"
+                          app:layout_flexShrink="0"
+                          app:toggle_text="7:30PM" />
+
+                      <com.hinacle.base.widget.toggle.ThemedButton
+                          android:id="@+id/btn6"
+                          android:layout_width="wrap_content"
+                          android:layout_height="38dp"
+                          app:layout_flexShrink="0"
+                          app:toggle_text="8:00PM" />
+
+                      <com.hinacle.base.widget.toggle.ThemedButton
+                          android:id="@+id/btn7"
+                          android:layout_width="wrap_content"
+                          android:layout_height="38dp"
+                          app:layout_flexShrink="0"
+                          app:toggle_text="8:30PM" />
+
+                      <com.hinacle.base.widget.toggle.ThemedButton
+                          android:id="@+id/btn8"
+                          android:layout_width="wrap_content"
+                          android:layout_height="38dp"
+                          app:layout_flexShrink="0"
+                          app:toggle_text="9:00PM" />
+
+                  </com.hinacle.base.widget.toggle.ThemedToggleButtonGroup>
+              </HorizontalScrollView>
+
+              <com.hinacle.base.widget.switchview.SwitchIconView
+                  android:id="@+id/switchBtn"
+                  android:layout_width="24dp"
+                  android:layout_height="24dp"
+                  app:si_animation_duration="500"
+                  app:si_disabled_alpha=".5"
+                  app:si_disabled_color="#b7b7b7"
+                  app:si_enabled="false"
+                  app:si_no_dash="false"
+                  app:si_tint_color="#ff3c00"
+                  app:srcCompat="@drawable/svg_icon_mine"/>
+
+
+              <com.hinacle.base.widget.switchview.SwitchView
+                  android:layout_width="wrap_content"
+                  app:color_on="@color/app_blue_0"
+                  app:color_off="@color/app_blue_0"
+                  android:layout_height="wrap_content"/>
+          </LinearLayout>
+
+      </androidx.core.widget.NestedScrollView>
+
+  </LinearLayout>
+</layout>

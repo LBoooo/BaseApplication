@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+<com.scwang.smart.refresh.layout.SmartRefreshLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/shineLayout"
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
+
+                <com.hinacle.base.widget.corner.RoundCornerImageView
+                    android:id="@+id/userAvatarImage"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="15dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15"
+                    app:round_corner_half_size_radius="true" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/userNameTv"
+                    style="@style/AppText"
+                    android:layout_marginStart="15dp"
+                    android:textSize="@dimen/app_text_20"
+                    app:layout_constraintBottom_toTopOf="@+id/userIntoTv"
+                    app:layout_constraintStart_toEndOf="@+id/userAvatarImage"
+                    app:layout_constraintTop_toTopOf="@+id/userAvatarImage" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/userIntoTv"
+                    style="@style/AppText"
+                    android:layout_marginStart="15dp"
+                    android:textColor="@color/app_grey_1"
+                    android:textSize="@dimen/app_text_13"
+                    app:layout_constraintBottom_toBottomOf="@+id/userAvatarImage"
+                    app:layout_constraintStart_toEndOf="@+id/userAvatarImage"
+
+                    app:layout_constraintTop_toBottomOf="@+id/userNameTv" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+</com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+</layout>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">BaseApplication</string>
+
+    <string name="recommend_title">推荐</string>
+    <string name="message_title">消息</string>
+    <string name="mine_title">我的</string>
+    <string name="home_title">主页</string>
+
+    <string name="resource_text">资源文件字符串</string>
+</resources>

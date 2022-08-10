@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/widget_title_normal"
+            app:title="@{`日志吐司工具`}"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/printBtn"
+            style="@style/AppText"
+            android:padding="15dp"
+            android:text="普通打印" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/printEBtn"
+            style="@style/AppText"
+            android:padding="15dp"
+            android:text="打印E级别" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/printTBtn"
+            style="@style/AppText"
+            android:padding="15dp"
+            android:text="带TAG打印" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AppText"
+            android:onClick="toastNormal"
+            android:padding="15dp"
+            android:text="普通吐司" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AppText"
+            android:onClick="toastLongTime"
+            android:padding="15dp"
+            android:text="长时间吐司" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AppText"
+            android:onClick="threadToast"
+            android:padding="15dp"
+            android:text="协程吐司" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AppText"
+            android:onClick="threadToast1"
+            android:padding="15dp"
+            android:text="子线程吐司" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

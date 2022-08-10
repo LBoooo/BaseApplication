@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/widget_title_normal"
+            app:title="@{`相册工具`}" />
+
+<!--        <com.hinacle.base.widget.title.TitleLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:setTitle="@{`相册工具`}" />-->
+
+
+        <com.hinacle.base.widget.corner.RoundCornerImageView
+            android:id="@+id/selectImg"
+            style="@style/AppImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="15dp"
+            android:background="@color/app_grey_2"
+            app:round_corner_radius="12dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AppText"
+            android:layout_marginStart="15dp"
+            android:text="打开相册" />
+
+        <com.hinacle.base.widget.corner.RoundCornerImageView
+            android:id="@+id/takeImage"
+            style="@style/AppImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="15dp"
+            android:background="@color/app_green_0"
+            app:round_corner_radius="10dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/AppText"
+            android:layout_marginStart="15dp"
+            android:text="拍照" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/photos"
+            android:padding="10dp"
+            android:background="@color/app_grey_0"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="4"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+
+</layout>
+

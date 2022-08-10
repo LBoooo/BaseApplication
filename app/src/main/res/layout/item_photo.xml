@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="path"
+            type="String" />
+    </data>
+    <com.hinacle.base.widget.corner.RoundCornerImageView
+        android:layout_width="80dp"
+        app:round_corner_radius="10dp"
+        app:bindSrc="@{path}"
+        android:id="@+id/image"
+        app:scaleType ="@{1}"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:layout_height="80dp"/>
+</layout>
