@@ -93,9 +93,7 @@ object AppUtil : SkeletonLoaderFactory {
         }
 
         SmartRefreshLayout.setDefaultRefreshFooterCreator { context, _ ->
-            ClassicsFooter(
-                context
-            )
+            ClassicsFooter(context)
         }
     }
 }

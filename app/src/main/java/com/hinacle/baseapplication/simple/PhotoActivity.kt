@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import androidx.constraintlayout.widget.ConstraintLayout
 import by.kirich1409.viewbindingdelegate.viewBinding
 import coil.load
 import com.hinacle.base.app.AppActivity
 import com.hinacle.base.util.dp
 import com.hinacle.base.util.onShakeClickListener
 import com.hinacle.base.util.toast.toast
+import com.hinacle.base.widget.album.clipPhoto
 import com.hinacle.base.widget.album.openAlbum
 import com.hinacle.base.widget.album.takePhoto
 import com.hinacle.baseapplication.R
@@ -45,13 +45,16 @@ class PhotoActivity : AppActivity(R.layout.activity_photo) {
                                 isVideo = it.type == "video"
                             }
                         })
+
                     }
                 }
             }
             takeImage.onShakeClickListener {
-                takePhoto(clipListener = {
-                    takeImage.load(it)
-                }) {}
+                takePhoto {
+                    clipPhoto(it.path){
+                        takeImage.load(this)
+                    }
+                }
             }
             photos.apply {
                 this.adapter = FastAdapter.with(adapter).apply {

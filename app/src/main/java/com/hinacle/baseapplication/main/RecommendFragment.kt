@@ -17,10 +17,13 @@ import com.hinacle.base.util.toast.toast
 import com.hinacle.base.widget.banner.bindBanner
 import com.hinacle.base.widget.banner.loadData
 import com.hinacle.base.widget.banner.loadImage
+import com.hinacle.base.widget.dialog.BehaviorController
+import com.hinacle.base.widget.dialog.StatusCallback
 import com.hinacle.base.widget.dialog.newBottomSheetDialog
 import com.hinacle.base.widget.statelayout.state
 
 import com.hinacle.baseapplication.R
+import com.hinacle.baseapplication.databinding.DialogBottomSheetTest0Binding
 import com.hinacle.baseapplication.databinding.DialogBottomSheetTestBinding
 
 import com.hinacle.baseapplication.databinding.FragmentRecommendBinding
@@ -71,24 +74,55 @@ class RecommendFragment : AppFragment(R.layout.fragment_recommend) {
             BottomDialog.builder(requireActivity()) {
 
             }.show()
+        if (i == 2){
+            com.hinacle.base.widget.dialog.BottomDialog(requireContext()).apply {
+
+            }.show()
+        }
 
     }
 
     private fun initDialog(){
         bd = newAppDialog {
-            layoutId = R.layout.dialog_bottom_sheet_test
+            layoutId = R.layout.dialog_bottom_sheet_test_0
             isFullHorizontal = true
             unLeak = true
             val adapter = ItemAdapter<MessageItem>()
-            bindingListenerFun(DialogBottomSheetTestBinding::class) { binding, dialog ->
+            bindingListenerFun(DialogBottomSheetTest0Binding::class) { binding, dialog ->
                 binding.recyclerView.apply {
                     this.adapter = FastAdapter.with(adapter)
 
                 }
-                BottomSheetBehavior.from(binding.bottomSheetLayout).apply {
+
+//               val behaviorController = BehaviorController(binding.bottomSheetLayout , object : StatusCallback{
+//                    override fun onSlide(slideOffset: Float) {
+//
+//                    }
+//
+//                   override fun onCollapsed() {
+//
+//                   }
+//
+//                   override fun onExpand() {
+//
+//
+//                   }
+//
+//                   override fun onHidden() {
+//
+//
+//                   }
+//                })
+////                behaviorController.hide()
+//                behaviorController.peekHeight = 350.dp
+                binding.root.onShakeClickListener { dialog.dismiss() }
+
+                val bsb = BottomSheetBehavior.from(binding.bottomSheetLayout).apply {
                     peekHeight = 350.dp
                     state = BottomSheetBehavior.STATE_COLLAPSED
                 }
+
+                bsb.isDraggable = true
 
                 adapter.set((0..50).map {
                     MessageItem("扩展。。。。。。。${it}")
@@ -97,8 +131,7 @@ class RecommendFragment : AppFragment(R.layout.fragment_recommend) {
         }
     }
 
-    lateinit var bd : AppDialog
-
+    private lateinit var bd : AppDialog
 
     override fun lateInit() {
         initDialog()

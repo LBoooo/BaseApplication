@@ -13,11 +13,6 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.core.animation.doOnEnd
 import androidx.core.animation.doOnStart
 
-/**
- * List of animation util functions
- * @author Bryan de Ridder
- */
-
 internal object AnimationUtils {
 
     const val clipBounds = "clipBounds"

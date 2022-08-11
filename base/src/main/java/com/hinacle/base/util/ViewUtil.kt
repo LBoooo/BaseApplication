@@ -3,6 +3,9 @@ package com.hinacle.base.util
 import android.view.View
 import java.util.concurrent.TimeUnit
 
+/**
+ * 防止重复点击
+ */
 fun <T : View> T.onShakeClickListener(
     interval: Long = 300,
     unit: TimeUnit = TimeUnit.MILLISECONDS,

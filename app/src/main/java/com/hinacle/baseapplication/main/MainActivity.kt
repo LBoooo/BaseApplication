@@ -8,8 +8,10 @@ import com.drake.statusbar.darkMode
 import com.drake.statusbar.immersive
 import com.hinacle.base.app.AppActivity
 import com.hinacle.base.binding.bindPager
+import com.hinacle.base.util.onStart
 import com.hinacle.baseapplication.R
 import com.hinacle.baseapplication.databinding.ActivityAppMainBinding
+import com.hinacle.baseapplication.simple.ScreenActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,6 +23,8 @@ class MainActivity : AppActivity(R.layout.activity_app_main) {
 //        immersive(darkMode = true)
         darkMode()
         setupSmoothBottomMenu()
+
+
     }
 
     private fun setupSmoothBottomMenu() {

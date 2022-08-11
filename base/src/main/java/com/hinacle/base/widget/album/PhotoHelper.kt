@@ -18,7 +18,6 @@ inline fun Activity.openAlbum(
     isUseWidth: Boolean = false,
     noinline builderListener: ((builder: AlbumBuilder) -> Unit)? = null,
     noinline cancelListener: (() -> Unit)? = null,
-    noinline clipListener: ((String) -> Unit)? = null,
     crossinline resultListener: (photos: List<Photo>) -> Unit
 ) {
     val builder = EasyPhotos.createAlbum(this, isShowCamera, isUseWidth, ImageEngine)
@@ -32,7 +31,7 @@ inline fun Activity.openAlbum(
         builderListener.invoke(builder)
     }
 
-    album(this, builder, clipListener, cancelListener, resultListener)
+    album( builder, cancelListener, resultListener)
 }
 
 /**
@@ -43,7 +42,6 @@ inline fun Fragment.openAlbum(
     isUseWidth: Boolean = false,
     noinline builderListener: ((builder: AlbumBuilder) -> Unit)? = null,
     noinline cancelListener: (() -> Unit)? = null,
-    noinline clipListener: ((String) -> Unit)? = null,
     crossinline resultListener: (photos: List<Photo>) -> Unit
 ) {
     val builder = EasyPhotos.createAlbum(this, isShowCamera, isUseWidth, ImageEngine)
@@ -57,7 +55,7 @@ inline fun Fragment.openAlbum(
         builderListener.invoke(builder)
     }
 
-    album(requireContext(), builder, clipListener, cancelListener, resultListener)
+    album(builder, cancelListener, resultListener)
 }
 
 /**
@@ -66,12 +64,11 @@ inline fun Fragment.openAlbum(
 inline fun Activity.takePhoto(
     noinline builderListener: ((builder: AlbumBuilder) -> Unit)? = null,
     noinline cancelListener: (() -> Unit)? = null,
-    noinline clipListener: ((String) -> Unit)? = null,
     crossinline resultListener: (path: Photo) -> Unit
 ) {
     val builder = EasyPhotos.createCamera(this, false)
     builderListener?.invoke(builder)
-    camera(this, builder, clipListener, cancelListener, resultListener)
+    camera( builder, cancelListener, resultListener)
 }
 
 /**
@@ -85,13 +82,11 @@ inline fun Fragment.takePhoto(
 ) {
     val builder = EasyPhotos.createCamera(this, false)
     builderListener?.invoke(builder)
-    camera(requireContext(), builder, clipListener, cancelListener, resultListener)
+    camera( builder, cancelListener, resultListener)
 }
 
 inline fun album(
-    context: Context,
     builder: AlbumBuilder,
-    noinline clipListener: ((String) -> Unit)? = null,
     noinline cancelListener: (() -> Unit)? = null,
     crossinline resultListener: (photos: List<Photo>) -> Unit
 ) {
@@ -99,19 +94,7 @@ inline fun album(
         object : SelectCallback() {
             override fun onResult(photos: ArrayList<Photo>?, isOriginal: Boolean) {
                 if (!photos.isNullOrEmpty()) {
-                    if (photos.size == 1) {
-                        if (clipListener != null) {
-                            ClipListener.clipListener = { path ->
-                                clipListener.invoke(path)
-                                ClipListener.clipListener = null
-                            }
-                            context.onStart<ClipActivity> {
-                                putExtra(AppConstant.clipPath, photos[0].path)
-                            }
-                        }
-                    } else {
-                        resultListener.invoke(photos)
-                    }
+                    resultListener.invoke(photos)
                 }
             }
 
@@ -122,9 +105,7 @@ inline fun album(
 }
 
 inline fun camera(
-    context: Context,
     builder: AlbumBuilder,
-    noinline clipListener: ((String) -> Unit)? = null,
     noinline cancelListener: (() -> Unit)? = null,
     crossinline resultListener: (path: Photo) -> Unit
 ) {
@@ -132,17 +113,7 @@ inline fun camera(
         object : SelectCallback() {
             override fun onResult(photos: ArrayList<Photo>?, isOriginal: Boolean) {
                 if (!photos.isNullOrEmpty()) {
-                    if (clipListener != null) {
-                        ClipListener.clipListener = { path ->
-                            clipListener.invoke(path)
-                            ClipListener.clipListener = null
-                        }
-                        context.onStart<ClipActivity> {
-                            putExtra(AppConstant.clipPath, photos[0].path)
-                        }
-                    } else {
-                        resultListener.invoke(photos[0])
-                    }
+                    resultListener.invoke(photos[0])
                 }
             }
 
@@ -151,4 +122,24 @@ inline fun camera(
             }
         }
     )
+}
+
+inline fun Activity.clipPhoto(path: String, crossinline block: String.() -> Unit) {
+    ClipListener.clipListener = {
+        it.block()
+        ClipListener.clipListener = null
+    }
+    onStart<ClipActivity> {
+        putExtra(AppConstant.clipPath, path)
+    }
+}
+
+inline fun Fragment.clipPhoto(path: String, crossinline block: String.() -> Unit) {
+    ClipListener.clipListener = {
+        it.block()
+        ClipListener.clipListener = null
+    }
+    requireContext().onStart<ClipActivity> {
+        putExtra(AppConstant.clipPath, path)
+    }
 }

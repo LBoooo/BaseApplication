@@ -19,13 +19,6 @@ abstract class AppActivity(private val layoutId: Int) : AppCompatActivity(layout
         superOnResume()
     }
 
-//    fun bindViewModel(viewModel:AppViewModel){
-//        lifecycle.addObserver(viewModel)
-//    }
-//
-//    fun unBindViewModel(viewModel:AppViewModel){
-//        lifecycle.removeObserver(viewModel)
-//    }
     open fun superOnCreate() {}
     open fun superOnResume() {}
     open fun initView() {}

@@ -13,7 +13,7 @@ import android.view.WindowManager
 import androidx.annotation.RequiresPermission
 
 
-// 真实的屏幕尺寸 todo 待完善
+// 真实的屏幕尺寸 todo 待完善 api30以下
 fun Activity.screenSize(): Pair<Int, Int> {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
         val wm = this.windowManager.currentWindowMetrics
