@@ -1,11 +1,14 @@
 package com.hinacle.baseapplication.main
 
+import android.view.LayoutInflater
 import by.kirich1409.viewbindingdelegate.viewBinding
 import cn.vove7.bottomdialog.BottomDialog
 import coil.load
 import com.drake.net.utils.scope
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.hinacle.appdialog.AppDialog
 import com.hinacle.appdialog.extensions.bindingListenerFun
+import com.hinacle.appdialog.extensions.newAppDialog
 import com.hinacle.appdialog.other.DialogGravity
 import com.hinacle.base.app.AppFragment
 import com.hinacle.base.util.dp
@@ -16,6 +19,7 @@ import com.hinacle.base.widget.banner.loadData
 import com.hinacle.base.widget.banner.loadImage
 import com.hinacle.base.widget.dialog.newBottomSheetDialog
 import com.hinacle.base.widget.statelayout.state
+
 import com.hinacle.baseapplication.R
 import com.hinacle.baseapplication.databinding.DialogBottomSheetTestBinding
 
@@ -34,25 +38,6 @@ import net.mikaelzero.mojito.impl.NumIndicator
 @AndroidEntryPoint
 class RecommendFragment : AppFragment(R.layout.fragment_recommend) {
     private val viewBinding by viewBinding(FragmentRecommendBinding::bind)
-
-    override fun initView() {
-        super.initView()
-
-        // banner扩展函数 具体查看扩展源码
-        viewBinding.banner.bindBanner {
-            loadImage { imageView, any, i ->
-                imageView.load(any)
-                imageView.onShakeClickListener {
-                    imageView.mojito(any.toString())
-                }
-
-            }
-            setLifecycleRegistry(lifecycle)
-            loadData { images }
-
-        }
-
-    }
 
     private val images = ArrayList<String>().apply {
         add(("https://upload-bbs.mihoyo.com/upload/2019/08/21/73766616/4d09b6b94491d3921344be906aa7971a_4136353673894269217.png"))
@@ -83,37 +68,40 @@ class RecommendFragment : AppFragment(R.layout.fragment_recommend) {
             )
 
         if (i == 1)
-         BottomDialog.builder(requireActivity()) {
+            BottomDialog.builder(requireActivity()) {
 
-        }.show()
+            }.show()
 
     }
 
+    private fun initDialog(){
+        bd = newAppDialog {
+            layoutId = R.layout.dialog_bottom_sheet_test
+            isFullHorizontal = true
+            unLeak = true
+            val adapter = ItemAdapter<MessageItem>()
+            bindingListenerFun(DialogBottomSheetTestBinding::class) { binding, dialog ->
+                binding.recyclerView.apply {
+                    this.adapter = FastAdapter.with(adapter)
 
+                }
+                BottomSheetBehavior.from(binding.bottomSheetLayout).apply {
+                    peekHeight = 350.dp
+                    state = BottomSheetBehavior.STATE_COLLAPSED
+                }
 
-    val bd = newBottomSheetDialog {
-        layoutId = R.layout.dialog_bottom_sheet_test
-        isFullHorizontal = true
-
-        val adapter = ItemAdapter<MessageItem>()
-        bindingListenerFun("", DialogBottomSheetTestBinding::class) { binding, dialog ->
-            binding.recyclerView.apply {
-                this.adapter = FastAdapter.with(adapter)
-
+                adapter.set((0..50).map {
+                    MessageItem("扩展。。。。。。。${it}")
+                })
             }
-            BottomSheetBehavior.from(binding.bottomSheetLayout).apply {
-                peekHeight = 350.dp
-                state = BottomSheetBehavior.STATE_COLLAPSED
-            }
-
-            adapter.set((0..50).map {
-                MessageItem("扩展。。。。。。。${it}")
-            })
         }
     }
 
+    lateinit var bd : AppDialog
+
 
     override fun lateInit() {
+        initDialog()
         with(viewBinding) {
             mImagesIv1.load(images[0])
             mImagesIv2.load(images[1])
@@ -129,21 +117,36 @@ class RecommendFragment : AppFragment(R.layout.fragment_recommend) {
             mImagesIv3.onShakeClickListener {
                 showImages(2)
             }
-            state().apply {
-                onRefresh {
-                    toast { "重试" }
-                }
-                scope {
-                    showLoading()
-                    delay(2000)
-                    when ((0..2).random()) {
-                        0 -> showContent()
-                        1 -> showError(NullPointerException())
-                        2 -> showEmpty()
+
+            // banner扩展函数 具体查看扩展源码
+            banner.bindBanner {
+                loadImage { imageView, any, i ->
+                    imageView.load(any)
+                    imageView.onShakeClickListener {
+                        imageView.mojito(any.toString())
                     }
-                    delay(1000)
-                    showContent()
+
                 }
+                setLifecycleRegistry(lifecycle)
+                loadData { images }
+            }
+
+        }
+
+        state().apply {
+            onRefresh {
+                toast { "重试" }
+            }
+            scope {
+                showLoading()
+                delay(2000)
+                when ((0..2).random()) {
+                    0 -> showContent()
+                    1 -> showError(NullPointerException())
+                    2 -> showEmpty()
+                }
+                delay(1000)
+                showContent()
             }
         }
     }

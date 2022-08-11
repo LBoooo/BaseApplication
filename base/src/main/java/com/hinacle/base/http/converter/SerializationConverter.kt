@@ -27,8 +27,8 @@ class SerializationConverter(
         val jsonDecoder = Json {
             ignoreUnknownKeys = true // JSON和数据模型字段可以不匹配
             coerceInputValues = true // 如果JSON字段是Null则使用默认值
-//            isLenient = true
-//            prettyPrint = true
+//            isLenient = true // 宽松模式
+//            prettyPrint = true // 生成排版后的JSON
         }
     }
 
@@ -40,8 +40,7 @@ class SerializationConverter(
             when {
                 code in 200..299 -> { // 请求成功
                     val bodyString = response.body?.string() ?: return null
-                    val kType = response.request.kType
-                        ?: throw ConvertException(response, "Request does not contain KType")
+                    val kType = response.request.kType ?: throw ConvertException(response, "Request does not contain KType")
                     return try {
                         val json = JSONObject(bodyString) // 获取JSON中后端定义的错误码和错误信息
                         val srvCode = json.getInt(this.code)

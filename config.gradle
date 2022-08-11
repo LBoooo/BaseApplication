@@ -48,7 +48,7 @@ ext {
             // 委托viewBinding 无反射
             "viewbinding_delegate": "com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.6",
             // dialog fragment 简单使用 扩展函数支持
-            "dialog"              : "com.github.LBoooo:AppDialog:1.0.2",
+            "dialog"              : "com.github.LBoooo:AppDialog:1.0.4",
             // 图片选择框架 支持混合选择 高star
             "album"               : "com.github.HuanTanSheng:EasyPhotos:3.1.5",
             // 查看大图 使用coil支持 高star
@@ -78,11 +78,5 @@ ext {
             "bottom_sheet_dialog" : "com.github.Vove7.BottomDialog:bottomdialog:2.3.0"
     ]
 
-    // 只在模块使用 如不需要可删除
-    compileOnly = [
-            // 通知栏监听网络日志 只测试起效
-            "http_catch": "com.github.chuckerteam.chucker:library:3.5.2",
-            // 内存泄漏检测 只测试起效
-            "leakcanary": "com.squareup.leakcanary:leakcanary-android:2.9.1"
-    ]
+
 }

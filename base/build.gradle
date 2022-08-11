@@ -13,24 +13,27 @@ android {
         minSdk 23
         targetSdk 32
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
+//        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
         release {
             //启用代码缩减、混淆处理和优化
-            minifyEnabled true
+            minifyEnabled false
             //默认混淆文件（无内容需要自己添加）
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
     buildFeatures {
         // 启用dataBinding
         dataBinding = true
@@ -58,9 +61,11 @@ dependencies {
         }
     }
 
-    compileOnly.each { debugImplementation(it.value) }
-
-
+    // 下面的不用可以直接删除
+    // 通知栏监听网络日志 只测试起效
+    implementation("com.github.chuckerteam.chucker:library:3.5.2")
+    // 内存泄漏检测 只debug起效
+    debugImplementation("com.squareup.leakcanary:leakcanary-android:2.9.1")
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'

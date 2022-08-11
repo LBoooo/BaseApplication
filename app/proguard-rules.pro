@@ -20,6 +20,17 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
+
+# Keep Serializers
+-keep,includedescriptorclasses class com.hinacle.baseapplication.**$$serializer { *; }
+-keepclassmembers class com.hinacle.base.** {
+    *** Companion;
+}
+-keepclasseswithmembers class com.hinacle.baseapplication.** {
+    kotlinx.serialization.KSerializer serializer(...);
+}
+
+
 -dontwarn org.bouncycastle.jsse.BCSSLParameters
 -dontwarn org.bouncycastle.jsse.BCSSLSocket
 -dontwarn org.bouncycastle.jsse.provider.BouncyCastleJsseProvider
@@ -31,21 +42,17 @@
 -dontwarn org.openjsse.net.ssl.OpenJSSE
 
 
-# Keep Serializers
+#---------easyphotos---------------------------------------------------------------------------------------------------------------------------#
+-keep class com.huantansheng.easyphotos.models.** { *; }
+#---------easyphotos---------------------------------------------------------------------------------------------------------------------------#
 
--keep,includedescriptorclasses class com.hinacle.baseapplication.**$$serializer { *; }
--keepclassmembers class com.hinacle.base.** {
-    *** Companion;
-}
--keepclasseswithmembers class com.hinacle.baseapplication.** {
-    kotlinx.serialization.KSerializer serializer(...);
-}
 
-# When kotlinx.serialization.json.JsonObjectSerializer occurs
+#---------banner---------------------------------------------------------------------------------------------------------------------------#
+-keep class androidx.recyclerview.widget.**{*;}
+-keep class androidx.viewpager2.widget.**{*;}
+#---------banner---------------------------------------------------------------------------------------------------------------------------#
 
--keepclassmembers class kotlinx.serialization.json.** {
-    *** Companion;
-}
--keepclasseswithmembers class kotlinx.serialization.json.** {
-    kotlinx.serialization.KSerializer serializer(...);
-}
+
+#---------dialog---------------------------------------------------------------------------------------------------------------------------#
+-keep public class com.hinacle.appdialog.AppDialog { *; }
+#---------dialog---------------------------------------------------------------------------------------------------------------------------#

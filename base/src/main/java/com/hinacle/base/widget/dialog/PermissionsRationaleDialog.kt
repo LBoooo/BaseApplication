@@ -30,7 +30,7 @@ class PermissionsRationaleDialog(
             bindingListenerFun(
                 "",
                 WidgetDialogPermissionsRationaleBinding::class
-            ) { binding, dialog ->
+            ) { binding, _ ->
                 binding.msg = PermissionsExplain(title, depict)
             }
         }

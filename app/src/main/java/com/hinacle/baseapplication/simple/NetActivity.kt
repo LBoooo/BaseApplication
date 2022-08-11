@@ -2,7 +2,6 @@ package com.hinacle.baseapplication.simple
 
 import androidx.activity.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.drake.net.utils.*
 import com.hinacle.base.app.AppActivity
 import com.hinacle.baseapplication.R
 import com.hinacle.baseapplication.databinding.ActivityNetBinding

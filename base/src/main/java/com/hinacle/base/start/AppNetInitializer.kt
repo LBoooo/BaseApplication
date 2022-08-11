@@ -9,8 +9,6 @@ import com.drake.net.cookie.PersistentCookieJar
 import com.drake.net.interceptor.LogRecordInterceptor
 import com.drake.net.okhttp.*
 import com.hinacle.base.BuildConfig
-import com.hinacle.base.app.AppConstant
-import com.hinacle.base.http.ApiServices
 import com.hinacle.base.http.converter.SerializationConverter
 import com.hinacle.base.http.error.ErrorHandler
 import com.hinacle.base.http.interceptor.HttpRequestInterceptor
@@ -21,7 +19,7 @@ import java.util.concurrent.TimeUnit
 class AppNetInitializer : Initializer<NetConfig> {
     override fun create(context: Context): NetConfig {
         return NetConfig.also {
-            it.initialize(ApiServices.httpUrl, context) {
+            it.initialize(context = context) {
                 addInterceptor(LogRecordInterceptor(BuildConfig.DEBUG))
                 // 超时设置
                 connectTimeout(30, TimeUnit.SECONDS)

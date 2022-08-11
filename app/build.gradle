@@ -8,6 +8,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        release {
+            storeFile(file("/Users/hinacle-/Desktop/work/keyStore/Untitled"))
+            storePassword("libai0420")
+            keyAlias("key0")
+            keyPassword("libai0420")
+        }
+    }
     namespace 'com.hinacle.baseapplication'
     compileSdk 32
 
@@ -18,11 +26,12 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.release
     }
 
     applicationVariants.all {
         outputs.all {
-            outputFileName = buildType.name+"_.apk"
+            outputFileName = buildType.name + "_.apk"
         }
     }
 
@@ -32,6 +41,11 @@ android {
             minifyEnabled true
             //启用资源文件缩减、优化
             shrinkResources true
+            //是否开启zip压缩
+            zipAlignEnabled true
+            //是否支持调试
+            debuggable false
+            //混淆文件
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
             buildConfigField "String", "URL", "\"http://192.168.3.47:8080/\""
@@ -43,21 +57,25 @@ android {
             minifyEnabled true
             //启用资源文件缩减、优化
             shrinkResources true
+            //是否开启zip压缩
+            zipAlignEnabled true
+            //是否支持调试
+            debuggable true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
             buildConfigField "String", "URL", "\"http://192.168.3.47:8080/\""
             buildConfigField "int", "type", "0"
         }
 
-        ct {
-            //启用代码缩减、混淆处理和优化
-            minifyEnabled true
-            //启用资源文件缩减、优化
-            shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "URL", "\"http://192.168.3.47:8080/\""
-            buildConfigField "int", "type", "-1"
-        }
+//        ct {
+//            //启用代码缩减、混淆处理和优化
+//            minifyEnabled true
+//            //启用资源文件缩减、优化
+//            shrinkResources true
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//            buildConfigField "String", "URL", "\"http://192.168.3.47:8080/\""
+//            buildConfigField "int", "type", "-1"
+//        }
     }
 
     compileOptions {
@@ -85,13 +103,11 @@ dependencies {
     // 框架
     implementation project(path: ':base')
     // hilt依赖注入框架
-    implementation("com.google.dagger:hilt-android:2.42")
-    kapt("com.google.dagger:hilt-android-compiler:2.42")
+    implementation('com.google.dagger:hilt-android:2.43.2')
+    kapt('com.google.dagger:hilt-android-compiler:2.43.2')
 //    kapt("androidx.hilt:hilt-compiler:1.0.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
     kapt("com.github.permissions-dispatcher:permissionsdispatcher-processor:4.9.2")
-
-
 
 
     testImplementation 'junit:junit:4.13.2'
