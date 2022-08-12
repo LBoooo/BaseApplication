@@ -1,12 +1,14 @@
 package com.hinacle.baseapplication.main
 
-import android.view.LayoutInflater
+import android.graphics.Color
+import android.view.View
 import by.kirich1409.viewbindingdelegate.viewBinding
-import cn.vove7.bottomdialog.BottomDialog
 import coil.load
 import com.drake.net.utils.scope
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
 import com.hinacle.appdialog.AppDialog
+import com.hinacle.appdialog.extensions.addShowDismissListener
 import com.hinacle.appdialog.extensions.bindingListenerFun
 import com.hinacle.appdialog.extensions.newAppDialog
 import com.hinacle.appdialog.other.DialogGravity
@@ -17,26 +19,16 @@ import com.hinacle.base.util.toast.toast
 import com.hinacle.base.widget.banner.bindBanner
 import com.hinacle.base.widget.banner.loadData
 import com.hinacle.base.widget.banner.loadImage
-import com.hinacle.base.widget.dialog.BehaviorController
-import com.hinacle.base.widget.dialog.StatusCallback
-import com.hinacle.base.widget.dialog.newBottomSheetDialog
+import com.hinacle.base.widget.dialog.BottomSheetDialog
 import com.hinacle.base.widget.statelayout.state
-
 import com.hinacle.baseapplication.R
 import com.hinacle.baseapplication.databinding.DialogBottomSheetTest0Binding
-import com.hinacle.baseapplication.databinding.DialogBottomSheetTestBinding
-
 import com.hinacle.baseapplication.databinding.FragmentRecommendBinding
-import com.hinacle.baseapplication.databinding.ItemMessageBinding
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
-import com.mikepenz.fastadapter.binding.AbstractBindingItem
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
-import net.mikaelzero.mojito.Mojito
 import net.mikaelzero.mojito.ext.mojito
-import net.mikaelzero.mojito.impl.DefaultPercentProgress
-import net.mikaelzero.mojito.impl.NumIndicator
 
 @AndroidEntryPoint
 class RecommendFragment : AppFragment(R.layout.fragment_recommend) {
@@ -50,6 +42,7 @@ class RecommendFragment : AppFragment(R.layout.fragment_recommend) {
         add(("https://upload-bbs.mihoyo.com/upload/2019/08/08/10982654/fe2e9243c4e6ea7e489f81ae3814ed08_3279663480817048245.jpg"))
         add(("https://upload-bbs.mihayo.com/upload/2019/03/01/73565430/82a40083d95800c553d036b8c0689323_4849126433310918291.png"))
     }
+
 
     private fun showImages(i: Int) {
 
@@ -71,16 +64,29 @@ class RecommendFragment : AppFragment(R.layout.fragment_recommend) {
             )
 
         if (i == 1)
-            BottomDialog.builder(requireActivity()) {
-
-            }.show()
+//            BottomDialog.builder(requireActivity()) {
+//
+//            }.show()
+            newAppDialog {
+                dialogStatusBarColor = Color.TRANSPARENT
+                layoutId = R.layout.test_full_dialog
+                isFullVerticalOverStatusBar = true
+                isFullHorizontal = true
+                unLeak = true
+                dialogThemeFun = {
+//                setStyle(STYLE_NO_FRAME,android.R.style.Theme_Holo_Light)
+                    com.hinacle.appdialog.R.style.AppDialogFullScreen
+                }
+            }.showOnWindow(childFragmentManager)
         if (i == 2){
-            com.hinacle.base.widget.dialog.BottomDialog(requireContext()).apply {
-
-            }.show()
+//            com.hinacle.base.widget.dialog.BottomDialog(requireContext()).apply {
+//
+//            }.show()
+            bsd.show()
         }
 
     }
+
 
     private fun initDialog(){
         bd = newAppDialog {
@@ -88,47 +94,55 @@ class RecommendFragment : AppFragment(R.layout.fragment_recommend) {
             isFullHorizontal = true
             unLeak = true
             val adapter = ItemAdapter<MessageItem>()
+            lateinit var bsb : BottomSheetBehavior<*>
             bindingListenerFun(DialogBottomSheetTest0Binding::class) { binding, dialog ->
                 binding.recyclerView.apply {
                     this.adapter = FastAdapter.with(adapter)
-
                 }
 
-//               val behaviorController = BehaviorController(binding.bottomSheetLayout , object : StatusCallback{
-//                    override fun onSlide(slideOffset: Float) {
-//
-//                    }
-//
-//                   override fun onCollapsed() {
-//
-//                   }
-//
-//                   override fun onExpand() {
-//
-//
-//                   }
-//
-//                   override fun onHidden() {
-//
-//
-//                   }
-//                })
-////                behaviorController.hide()
-//                behaviorController.peekHeight = 350.dp
-                binding.root.onShakeClickListener { dialog.dismiss() }
-
-                val bsb = BottomSheetBehavior.from(binding.bottomSheetLayout).apply {
+                  bsb = BottomSheetBehavior.from(binding.bottomSheetLayout).apply {
                     peekHeight = 350.dp
-                    state = BottomSheetBehavior.STATE_COLLAPSED
+//                    state = BottomSheetBehavior.STATE_COLLAPSED
                 }
 
-                bsb.isDraggable = true
+                bsb.addBottomSheetCallback(object :BottomSheetCallback(){
+                    override fun onStateChanged(bottomSheet: View, newState: Int) {
+                         if (newState == BottomSheetBehavior.STATE_HIDDEN){
+                             dialog.dismiss()
+                         }
+                    }
 
+                    override fun onSlide(bottomSheet: View, slideOffset: Float) {
+
+                    }
+                })
+                bsb.isHideable = true
+                binding.root.onShakeClickListener { bsb.state = BottomSheetBehavior.STATE_HIDDEN }
                 adapter.set((0..50).map {
                     MessageItem("扩展。。。。。。。${it}")
                 })
             }
+            addShowDismissListener("key"){
+                onDialogShow {
+                    bsb.state = BottomSheetBehavior.STATE_COLLAPSED
+                }
+                onDialogDismiss {
+
+                }
+            }
+
         }
+    }
+
+    private val bsd : BottomSheetDialog by lazy {
+        BottomSheetDialog(childFragmentManager , isUseFullScreen = false).apply {
+//            header(AnimHeadBuilder1(this))
+            header(HeaderBuilder())
+            content(ContentBuilder())
+            footer(FooterBuilder())
+
+        }
+
     }
 
     private lateinit var bd : AppDialog

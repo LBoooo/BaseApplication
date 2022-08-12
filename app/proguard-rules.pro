@@ -20,7 +20,6 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
-
 # Keep Serializers
 -keep,includedescriptorclasses class com.hinacle.baseapplication.**$$serializer { *; }
 -keepclassmembers class com.hinacle.base.** {
@@ -41,18 +40,3 @@
 -dontwarn org.openjsse.javax.net.ssl.SSLSocket
 -dontwarn org.openjsse.net.ssl.OpenJSSE
 
-
-#---------easyphotos---------------------------------------------------------------------------------------------------------------------------#
--keep class com.huantansheng.easyphotos.models.** { *; }
-#---------easyphotos---------------------------------------------------------------------------------------------------------------------------#
-
-
-#---------banner---------------------------------------------------------------------------------------------------------------------------#
--keep class androidx.recyclerview.widget.**{*;}
--keep class androidx.viewpager2.widget.**{*;}
-#---------banner---------------------------------------------------------------------------------------------------------------------------#
-
-
-#---------dialog---------------------------------------------------------------------------------------------------------------------------#
--keep public class com.hinacle.appdialog.AppDialog { *; }
-#---------dialog---------------------------------------------------------------------------------------------------------------------------#

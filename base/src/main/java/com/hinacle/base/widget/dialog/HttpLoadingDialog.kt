@@ -2,6 +2,7 @@ package com.hinacle.base.widget.dialog
 
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Context
 import android.graphics.drawable.RotateDrawable
@@ -25,6 +26,7 @@ class HttpLoadingDialog constructor(
 ) : Dialog(context, themeResId) {
     private var title: String = "加载中..."
     private lateinit var titleTv: TextView
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val view = LayoutInflater.from(context).inflate(R.layout.dialog_loading, null)

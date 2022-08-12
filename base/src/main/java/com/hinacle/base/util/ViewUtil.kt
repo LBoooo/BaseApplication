@@ -1,6 +1,9 @@
 package com.hinacle.base.util
 
 import android.view.View
+import android.view.animation.AlphaAnimation
+import android.view.animation.Animation
+import android.view.animation.ScaleAnimation
 import java.util.concurrent.TimeUnit
 
 /**
@@ -28,4 +31,32 @@ internal class OnShakeClickListener<T : View>(
             block(v as T)
         }
     }
+}
+
+// 缩放动画 点击效果
+fun View.scaleClickView(startScale: Float = 0.95f, endScale: Float = 1f) {
+    val animation = ScaleAnimation(
+        startScale, endScale,
+        startScale, endScale,
+        Animation.RELATIVE_TO_SELF, 0.5f,
+        Animation.RELATIVE_TO_SELF, 0.5f
+    )
+    animation.fillAfter = true
+    animation.duration = 300L
+    startAnimation(animation)
+}
+
+
+fun View.fadeOut(duration: Long = 800, endStatus: Int = View.GONE) {
+    visibility = endStatus
+    startAnimation(AlphaAnimation(1f, 0f).apply {
+        setDuration(duration)
+    })
+}
+
+fun View.fadeIn(duration: Long = 500) {
+    visibility = View.VISIBLE
+    startAnimation(AlphaAnimation(0f, 1f).apply {
+        setDuration(duration)
+    })
 }

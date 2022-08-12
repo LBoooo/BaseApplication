@@ -1,20 +1,20 @@
-#指定不去忽略非公共库的类
--dontskipnonpubliclibraryclasses
-#这句话能够使我们的项目混淆后产生映射文件# 包含有类名->混淆后类名的映射关系
--verbose
-#指定不去忽略非公共库的类成员
--dontskipnonpubliclibraryclassmembers
-#不做预校验，preverify是proguard的四个步骤之一，Android不需要preverify，去掉这一步能够加快混淆速度。
--dontpreverify
-#保留Annotation不混淆
--keepattributes Annotation,InnerClasses
-#避免混淆泛型
--keepattributes Signature
-#抛出异常时保留代码行号
--keepattributes SourceFile,LineNumberTable
-#指定混淆是采用的算法，后面的参数是一个过滤器
-#这个过滤器是谷歌推荐的算法，一般不做更改
--optimizations !code/simplification/cast,!field/,!class/merging/
+##指定不去忽略非公共库的类
+#-dontskipnonpubliclibraryclasses
+##这句话能够使我们的项目混淆后产生映射文件# 包含有类名->混淆后类名的映射关系
+#-verbose
+##指定不去忽略非公共库的类成员
+#-dontskipnonpubliclibraryclassmembers
+##不做预校验，preverify是proguard的四个步骤之一，Android不需要preverify，去掉这一步能够加快混淆速度。
+#-dontpreverify
+##保留Annotation不混淆
+#-keepattributes Annotation,InnerClasses
+##避免混淆泛型
+#-keepattributes Signature
+##抛出异常时保留代码行号
+#-keepattributes SourceFile,LineNumberTable
+##指定混淆是采用的算法，后面的参数是一个过滤器
+##这个过滤器是谷歌推荐的算法，一般不做更改
+#-optimizations !code/simplification/cast,!field/,!class/merging/
 
 
 
@@ -27,9 +27,9 @@
 -keep public class * extends android.content.ContentProvider
 -keep public class * extends android.app.backup.BackupAgentHelper
 -keep public class * extends android.preference.Preference
--keep public class com.android.vending.licensing.ILicensingService
--keep public class * extends android.support.v4.app.FragmentActivity
--keep public class * extends android.support.v4.app.Fragmen
+#-keep public class com.android.vending.licensing.ILicensingService
+#-keep public class * extends android.support.v4.app.FragmentActivity
+#-keep public class * extends android.support.v4.app.Fragmen
 # 保留了含有native方法的类
 -keepclasseswithmembernames class * {native <methods>;}
 
@@ -85,16 +85,16 @@
 ##-keepclassmembers class * implements java.io.Serializable { static final long serialVersionUID; private static final java.io.ObjectStreamField[] serialPersistentFields; !static !transient ; !private ; !private ; private void writeObject(java.io.ObjectOutputStream); private void readObject(java.io.ObjectInputStream); java.lang.Object writeReplace(); java.lang.Object readResolve();}
 #
 ##webView处理，项目中没有使用到webView忽略即可
--keepclassmembers class fqcn.of.javascript.interface.for.webview {
-    public *;
-}
--keepclassmembers class * extends android.webkit.webViewClient {
-    public void *(android.webkit.WebView, java.lang.String, android.graphics.Bitmap);
-    public boolean *(android.webkit.WebView, java.lang.String);
-}
--keepclassmembers class * extends android.webkit.webViewClient {
-    public void *(android.webkit.webView, jav.lang.String);
-}
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#    public *;
+#}
+#-keepclassmembers class * extends android.webkit.webViewClient {
+#    public void *(android.webkit.WebView, java.lang.String, android.graphics.Bitmap);
+#    public boolean *(android.webkit.WebView, java.lang.String);
+#}
+#-keepclassmembers class * extends android.webkit.webViewClient {
+#    public void *(android.webkit.webView, jav.lang.String);
+#}
 
 
 #---------kotlinx-serialization---------------------------------------------------------------------------------------------------------------------------#
@@ -140,8 +140,8 @@
 #}
 
 -keepattributes Annotation, InnerClasses
--dontnote kotlinx.serialization.AnnotationsKt
--dontnote kotlinx.serialization.SerializationKt
+#-dontnote kotlinx.serialization.AnnotationsKt
+#-dontnote kotlinx.serialization.SerializationKt
 
 # Keep Serializers
 
@@ -163,3 +163,18 @@
 }
 #---------kotlinx-serialization---------------------------------------------------------------------------------------------------------------------------#
 
+
+#---------easyphotos---------------------------------------------------------------------------------------------------------------------------#
+-keep class com.huantansheng.easyphotos.models.** { *; }
+#---------easyphotos---------------------------------------------------------------------------------------------------------------------------#
+
+
+#---------banner---------------------------------------------------------------------------------------------------------------------------#
+-keep class androidx.recyclerview.widget.**{*;}
+-keep class androidx.viewpager2.widget.**{*;}
+#---------banner---------------------------------------------------------------------------------------------------------------------------#
+
+
+##---------dialog---------------------------------------------------------------------------------------------------------------------------#
+#-keep public class com.hinacle.appdialog.AppDialog { *; }
+##---------dialog---------------------------------------------------------------------------------------------------------------------------#

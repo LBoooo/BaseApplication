@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:background="@color/app_white"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/titleBottom"
+
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_title">
+
+            <View
+                android:background="@color/app_green_0"
+                android:id="@+id/fillView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"/>
+
+        </LinearLayout>
+
+        <com.hinacle.base.widget.corner.RoundCornerConstraintLayout
+            app:round_corner_top_right_radius="15dp"
+            app:round_corner_top_left_radius="15dp"
+            android:layout_width="match_parent"
+            android:id="@+id/titleLayout"
+            android:background="@color/white"
+            android:layout_height="@dimen/app_title">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/titleBackBtn"
+                android:layout_width="@dimen/app_title"
+                android:layout_height="@dimen/app_title"
+                android:padding="12dp"
+                android:src="@drawable/svg_icon_back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/AppText"
+                android:text="请问请问去"
+                android:id="@+id/title"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/titleBackBtn"
+                app:layout_constraintTop_toTopOf="parent" />
+        </com.hinacle.base.widget.corner.RoundCornerConstraintLayout>
+
+
+    </LinearLayout>
+
+</layout>

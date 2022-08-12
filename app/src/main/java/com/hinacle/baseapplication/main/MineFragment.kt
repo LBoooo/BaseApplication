@@ -8,6 +8,7 @@ import com.hinacle.base.app.AppFragment
 import com.hinacle.base.util.logcat.logcat
 import com.hinacle.base.util.onShakeClickListener
 import com.hinacle.base.util.onStart
+import com.hinacle.base.util.scaleClickView
 import com.hinacle.baseapplication.R
 import com.hinacle.baseapplication.databinding.FragmentMineBinding
 import com.hinacle.baseapplication.simple.UserActivity

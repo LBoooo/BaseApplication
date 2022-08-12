@@ -21,7 +21,7 @@ class MainActivity : AppActivity(R.layout.activity_app_main) {
     override fun initView() {
         super.initView()
 //        immersive(darkMode = true)
-        darkMode()
+//        darkMode()
         setupSmoothBottomMenu()
 
 
