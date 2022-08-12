@@ -2,7 +2,10 @@ package com.hinacle.baseapplication.simple
 
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.hinacle.base.app.AppActivity
+import com.hinacle.base.datastore.getDataStore
+import com.hinacle.base.datastore.saveDataStore
 import com.hinacle.base.util.*
+import com.hinacle.base.util.logcat.logcat
 import com.hinacle.base.util.rxbus.RxBus
 import com.hinacle.base.util.rxbus.receive
 import com.hinacle.base.util.rxbus.receiveSticky
@@ -26,7 +29,6 @@ class OtherActivity : AppActivity(R.layout.activity_other) {
         // 加载图片 imageview.load扩展函数 入参Any 详情可见coil官网
         // 适配方案 manifests配置基础尺寸自动适配
         // 图片选择
-
 
 
         // 可选用组件
@@ -56,6 +58,26 @@ class OtherActivity : AppActivity(R.layout.activity_other) {
                 launch.launch<ResultActivity>(this@OtherActivity)
 
             }
+            dataStoreBtn.onShakeClickListener {
+                getDataStore<String>("name"){
+                    logcat { "name-->>$this" }
+                }
+                getDataStore<Int>("id"){
+                    logcat { "id-->>$this" }
+                }
+                getDataStore<Boolean>("isLogin"){
+                    logcat { "isLogin-->>$this" }
+                }
+                getDataStore<Long>("time"){
+                    logcat { "time-->>$this" }
+                }
+                getDataStore<Float>("money"){
+                    logcat { "money-->>$this" }
+                }
+                getDataStore<Set<String>>("tag"){
+                    logcat { "tag-->>${this.toString()}" }
+                }
+            }
         }
     }
 
@@ -70,6 +92,16 @@ class OtherActivity : AppActivity(R.layout.activity_other) {
 //        }
         receiveSticky<String> {
             toast { this }
+            saveDataStore {
+                mapOf(
+                    "name" to "asdasd",
+                    "id" to 1234,
+                    "isLogin" to true,
+                    "time" to currentTimeMillis,
+                    "money" to 123.55f,
+                    "tag" to setOf<String>("java", "kotlin", "android")
+                )
+            }
         }
     }
 

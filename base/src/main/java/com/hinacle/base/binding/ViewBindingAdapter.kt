@@ -10,11 +10,8 @@ import androidx.viewpager2.widget.ViewPager2
 import coil.load
 import com.hinacle.base.R
 import com.hinacle.base.widget.title.TitleLayout
-import com.zhpan.bannerview.BannerViewPager
-import com.zhpan.bannerview.BaseBannerAdapter
-import com.zhpan.bannerview.BaseViewHolder
 
-
+// viewPager2 绑定 适配器
 fun ViewPager2.bindPager(fm: FragmentManager, lifecycle: Lifecycle, vararg fragments: Fragment) {
     offscreenPageLimit = fragments.size
     adapter = object : FragmentStateAdapter(fm, lifecycle) {
@@ -24,12 +21,13 @@ fun ViewPager2.bindPager(fm: FragmentManager, lifecycle: Lifecycle, vararg fragm
 }
 
 
-
+// 设置TitleLayout的标题 同<include -> title>
 @BindingAdapter("setAppTitle")
 fun setTitle(tv: TitleLayout, title: CharSequence) {
     tv.viewBinding.title = title.toString()
 }
 
+// xml 使用加载图片 可根据图片尺寸不同加载不同的占位图和错误图和一些其他设置(eg:模糊 变换 等)
 @BindingAdapter(value = ["bindSrc", "scaleType"])
 fun bindImage(imageView: ImageView, data: Any, type: Int = 0) {
     imageView.load(data) {

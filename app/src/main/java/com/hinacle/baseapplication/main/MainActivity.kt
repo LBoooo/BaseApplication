@@ -65,7 +65,6 @@ class MainActivity : AppActivity(R.layout.activity_app_main) {
     private fun initViewPager(vp: ViewPager2) {
         //是否可滑动
         vp.isUserInputEnabled = false
-        vp.offscreenPageLimit = 4
         vp.bindPager(
             supportFragmentManager,
             lifecycle,

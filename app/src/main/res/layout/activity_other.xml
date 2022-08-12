@@ -33,5 +33,11 @@
             android:id="@+id/intentBtn"
             android:text="跳转事件"
             android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:id="@+id/dataStoreBtn"
+            android:text="打印dataStore"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 </layout>

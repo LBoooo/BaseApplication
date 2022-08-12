@@ -8,6 +8,8 @@ import android.widget.FrameLayout
 import by.kirich1409.viewbindingdelegate.viewBinding
 import coil.load
 import com.hinacle.base.app.AppActivity
+import com.hinacle.base.datastore.DataStoreUtils
+import com.hinacle.base.datastore.getDataStore
 import com.hinacle.base.util.dp
 import com.hinacle.base.util.onShakeClickListener
 import com.hinacle.base.util.toast.toast
