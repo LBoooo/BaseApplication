@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="app_transparent">#00ffffff</color>
+    <color name="app_translucent">#aa000000</color>
     <color name="app_white">#ffffffff</color>
     <color name="app_black">#ff000000</color>
     <color name="app_red">#ffff0000</color>
@@ -8,7 +10,7 @@
     <color name="app_line">#fff2f2f5</color>
     <color name="app_text">#ff333333</color>
 
-    <color name="app_translucent">#aa000000</color>
+
     <color name="app_skeleton">#ffcccccc</color>
 
     <color name="switcher_on_color">#48ea8b</color>

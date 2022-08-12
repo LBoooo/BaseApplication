@@ -7,8 +7,9 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include layout="@layout/widget_title_normal"
-            app:title="@{`日志吐司工具`}"/>
+        <include
+            layout="@layout/widget_title_normal"
+            app:title="@{`日志吐司工具`}" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/printBtn"
@@ -30,12 +31,17 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             style="@style/AppText"
+            android:layout_width="match_parent"
+            android:background="@drawable/target_button_shape"
+            android:foreground="@drawable/selector_click_foreground"
             android:onClick="toastNormal"
             android:padding="15dp"
             android:text="普通吐司" />
 
         <androidx.appcompat.widget.AppCompatTextView
             style="@style/AppText"
+            android:layout_width="match_parent"
+            android:foreground="@drawable/selector_click_foreground"
             android:onClick="toastLongTime"
             android:padding="15dp"
             android:text="长时间吐司" />
