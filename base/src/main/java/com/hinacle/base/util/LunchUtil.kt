@@ -8,7 +8,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 
-
 /**
  * 从Activity启动Activity 不携带参数 推荐携带参数方法
  */
@@ -43,11 +42,9 @@ inline fun <reified T : Activity> Context.onStart(block: Intent.() -> Unit) {
     startActivity(mIntent)
 }
 
-
-
-
-
-
+/**
+ * 带返回值的launch
+ */
 inline fun Fragment.onStartForResultLaunch(crossinline resultListener: (code: Int, intent: Intent?) -> Unit): ActivityResultLauncher<Intent> {
     return registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         result?.let {

@@ -251,6 +251,10 @@
                   app:color_on="@color/app_blue_0"
                   app:color_off="@color/app_blue_0"
                   android:layout_height="wrap_content"/>
+
+              <com.hinacle.base.widget.edittext.ClearEditText
+                  android:layout_width="match_parent"
+                  android:layout_height="45dp"/>
           </LinearLayout>
 
       </androidx.core.widget.NestedScrollView>

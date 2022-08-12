@@ -3,8 +3,6 @@ package com.hinacle.baseapplication.main
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.drake.net.utils.scope
 import com.hinacle.base.app.AppFragment
-import com.hinacle.base.util.rxbus.RxBus
-import com.hinacle.base.util.rxbus.transmit
 import com.hinacle.base.util.rxbus.transmitSticky
 import com.hinacle.baseapplication.R
 import dagger.hilt.android.AndroidEntryPoint
@@ -70,5 +68,7 @@ class MessageFragment : AppFragment(R.layout.fragment_message) {
             }
 
         }
+
     }
+
 }
