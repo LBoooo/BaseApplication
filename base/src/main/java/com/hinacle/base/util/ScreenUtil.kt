@@ -10,6 +10,7 @@ import android.os.Build
 import android.os.PowerManager
 import android.provider.Settings
 import android.view.WindowManager
+import android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN
 import androidx.annotation.RequiresPermission
 
 
@@ -111,16 +112,17 @@ fun Activity.unlockScreenOrientation() {
 /**
  * 判断和设置是否全屏，赋值为true设置成全屏
  */
+@Suppress("DEPRECATION")
 var Activity.isFullScreen: Boolean
     get() {
-        val flag = WindowManager.LayoutParams.FLAG_FULLSCREEN
+        val flag = FLAG_FULLSCREEN
         return (window.attributes.flags and flag) == flag
     }
     set(value) {
         if (value) {
-            window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+            window.addFlags(FLAG_FULLSCREEN)
         } else {
-            window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+            window.clearFlags(FLAG_FULLSCREEN)
         }
     }
 

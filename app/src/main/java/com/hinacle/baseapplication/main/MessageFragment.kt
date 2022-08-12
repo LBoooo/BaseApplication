@@ -2,9 +2,10 @@ package com.hinacle.baseapplication.main
 
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.drake.net.utils.scope
-import com.drake.net.utils.scopeLife
 import com.hinacle.base.app.AppFragment
-import com.hinacle.base.util.RxBus
+import com.hinacle.base.util.rxbus.RxBus
+import com.hinacle.base.util.rxbus.transmit
+import com.hinacle.base.util.rxbus.transmitSticky
 import com.hinacle.baseapplication.R
 import dagger.hilt.android.AndroidEntryPoint
 import com.hinacle.baseapplication.databinding.FragmentMessageBinding
@@ -13,7 +14,6 @@ import com.mikepenz.fastadapter.adapters.ItemAdapter
 import com.mikepenz.fastadapter.adapters.ModelAdapter
 import koleton.api.hideSkeleton
 import koleton.api.loadSkeleton
-import kotlinx.coroutines.delay
 
 @AndroidEntryPoint
 class MessageFragment : AppFragment(R.layout.fragment_message) {
@@ -64,7 +64,9 @@ class MessageFragment : AppFragment(R.layout.fragment_message) {
             scope {
                 recyclerView.hideSkeleton()
 
-                RxBus.getInstance().postSticky("发送粘性事件")
+//                RxBus.getInstance().postSticky("发送粘性事件")
+
+                transmitSticky { "发送粘性事件" }
             }
 
         }

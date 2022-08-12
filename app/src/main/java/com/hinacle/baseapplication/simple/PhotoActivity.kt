@@ -39,13 +39,11 @@ class PhotoActivity : AppActivity(R.layout.activity_photo) {
                     it.complexSelector(false, 1, 2)
                 }) {
                     if (it.isNotEmpty()) {
-//                        selectImg.load(it[0])
                         adapter.add(it.map {
                             PhotoItem(it.path).apply {
                                 isVideo = it.type == "video"
                             }
                         })
-
                     }
                 }
             }
@@ -77,10 +75,7 @@ class PhotoActivity : AppActivity(R.layout.activity_photo) {
                     }
                 }
             }
-
         }
-
-
     }
 
     class MaskPhoto(val context: Context) : ActivityCoverLoader {

@@ -1,7 +1,6 @@
 package com.hinacle.base.widget.album
 
 import android.app.Activity
-import android.content.Context
 import androidx.fragment.app.Fragment
 import com.hinacle.base.app.AppConstant
 import com.hinacle.base.util.onStart
@@ -30,7 +29,6 @@ inline fun Activity.openAlbum(
     } else {
         builderListener.invoke(builder)
     }
-
     album( builder, cancelListener, resultListener)
 }
 
@@ -54,7 +52,6 @@ inline fun Fragment.openAlbum(
     } else {
         builderListener.invoke(builder)
     }
-
     album(builder, cancelListener, resultListener)
 }
 
@@ -97,7 +94,6 @@ inline fun album(
                     resultListener.invoke(photos)
                 }
             }
-
             override fun onCancel() {
                 cancelListener?.invoke()
             }
@@ -116,7 +112,6 @@ inline fun camera(
                     resultListener.invoke(photos[0])
                 }
             }
-
             override fun onCancel() {
                 cancelListener?.invoke()
             }

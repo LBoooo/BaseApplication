@@ -1,8 +1,8 @@
-package com.hinacle.base.util
+package com.hinacle.base.util.rxbus
 
-import android.util.Log
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Lifecycle
+import com.hinacle.base.util.logcat.logcat
 import com.trello.lifecycle4.android.lifecycle.AndroidLifecycle
 import io.reactivex.rxjava3.schedulers.Schedulers
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -36,7 +36,7 @@ class RxBus private constructor() {
     inline fun <reified T : Any> toObservable(owner: LifecycleOwner? , event: Lifecycle.Event): Observable<T> {
         val provider = AndroidLifecycle.createLifecycleProvider(owner)
         return mBus.ofType(T::class.java)
-            .doOnDispose { Log.i("RxBus", "RxBus取消订阅") }
+            .doOnDispose { logcat { "RxBus取消订阅" } }
             .compose(provider.bindUntilEvent(event))
             .subscribeOn(Schedulers.io())
             .unsubscribeOn(Schedulers.io())
@@ -79,7 +79,7 @@ class RxBus private constructor() {
         synchronized(mStickyEventMap) {
             val provider = AndroidLifecycle.createLifecycleProvider(owner)
             val observable = mBus.ofType(T::class.java)
-                .doOnDispose { Log.i("RxBus", "RxBus取消订阅") }
+                .doOnDispose { logcat { "RxBus取消订阅" } }
                 .compose(provider.bindUntilEvent(e))
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())

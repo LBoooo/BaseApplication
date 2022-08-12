@@ -3,6 +3,9 @@ package com.hinacle.baseapplication.simple
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.hinacle.base.app.AppActivity
 import com.hinacle.base.util.*
+import com.hinacle.base.util.rxbus.RxBus
+import com.hinacle.base.util.rxbus.receive
+import com.hinacle.base.util.rxbus.receiveSticky
 import com.hinacle.base.util.toast.toast
 import com.hinacle.baseapplication.R
 import com.hinacle.baseapplication.databinding.ActivityOtherBinding
@@ -62,8 +65,11 @@ class OtherActivity : AppActivity(R.layout.activity_other) {
     }
 
     override fun superOnCreate() {
-        RxBus.getInstance().toObservableSticky<String>(this).subscribe {
-            toast { it }
+//        RxBus.getInstance().toObservableSticky<String>(this).subscribe {
+//            toast { it }
+//        }
+        receiveSticky<String> {
+            toast { this }
         }
     }
 
