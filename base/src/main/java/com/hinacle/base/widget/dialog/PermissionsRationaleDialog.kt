@@ -12,6 +12,11 @@ import com.hinacle.appdialog.R
 import com.hinacle.base.databinding.WidgetDialogPermissionsRationaleBinding
 import com.hinacle.base.util.px
 
+/**
+ * 申请权限需要的说明弹窗
+ * eg: 申请定位权限 title = 定位权限使用说明 depict = 申请位置权限是为了向您提供基于您的位置信息附近的优质内容
+ * 可能需要延迟一秒弹出 以实现同步效果
+ */
 class PermissionsRationaleDialog(
     private val context: Context,
     val title: String, val depict: String

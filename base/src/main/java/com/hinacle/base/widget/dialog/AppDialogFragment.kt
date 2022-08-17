@@ -12,7 +12,11 @@ import androidx.fragment.app.FragmentManager
 import com.hinacle.base.R
 import com.hinacle.base.vm.AppViewModel
 
-
+/**
+ * @see com.hinacle.appdialog.AppDialog
+ * @see com.hinacle.appdialog.extensions.newAppDialog
+ */
+@Deprecated("不好 不要了", replaceWith = ReplaceWith("AppDialog"))
 abstract class AppDialogFragment<V : ViewDataBinding, VM : AppViewModel>(
     private val layoutId: Int,
     private val fm: FragmentManager

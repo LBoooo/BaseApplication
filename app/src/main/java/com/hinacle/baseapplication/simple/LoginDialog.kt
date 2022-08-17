@@ -6,9 +6,9 @@ import com.drake.net.utils.runMain
 import com.hinacle.base.util.dp
 import com.hinacle.base.util.fadeIn
 import com.hinacle.base.util.fadeOut
-import com.hinacle.base.widget.dialog.BottomSheetDialog
-import com.hinacle.base.widget.dialog.ContentBuilder
-import com.hinacle.base.widget.dialog.ExFullHeaderBuilder
+import com.hinacle.base.widget.dialog.bottomsheet.BottomSheetDialog
+import com.hinacle.base.widget.dialog.bottomsheet.ContentBuilder
+import com.hinacle.base.widget.dialog.bottomsheet.ExFullHeaderBuilder
 import com.hinacle.baseapplication.R
 import com.hinacle.baseapplication.databinding.DialogContentLoginBinding
 import com.hinacle.baseapplication.databinding.DialogHeaderLoginBinding
@@ -41,7 +41,7 @@ class LoginDialog {
         }
     }
 
-    class LoginHeader(dialog:BottomSheetDialog) : ExFullHeaderBuilder<DialogHeaderLoginBinding>(dialog , titleRoundRadius = 15f.dp) {
+    class LoginHeader(dialog: BottomSheetDialog) : ExFullHeaderBuilder<DialogHeaderLoginBinding>(dialog , titleRoundRadius = 15f.dp) {
 
         override val layoutId: Int = R.layout.dialog_header_login
 

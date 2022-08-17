@@ -1,4 +1,4 @@
-package com.hinacle.base.widget.dialog
+package com.hinacle.base.widget.dialog.bottomsheet
 
 import android.animation.Animator
 import android.animation.ValueAnimator

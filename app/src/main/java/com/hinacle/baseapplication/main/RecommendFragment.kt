@@ -1,11 +1,9 @@
 package com.hinacle.baseapplication.main
 
-import android.graphics.Color
 import android.view.View
 import by.kirich1409.viewbindingdelegate.viewBinding
 import coil.load
 import com.drake.net.utils.scope
-import com.drake.net.utils.withIO
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
 import com.hinacle.appdialog.AppDialog
@@ -20,7 +18,7 @@ import com.hinacle.base.util.toast.toast
 import com.hinacle.base.widget.banner.bindBanner
 import com.hinacle.base.widget.banner.loadData
 import com.hinacle.base.widget.banner.loadImage
-import com.hinacle.base.widget.dialog.BottomSheetDialog
+import com.hinacle.base.widget.dialog.bottomsheet.BottomSheetDialog
 import com.hinacle.base.widget.statelayout.state
 import com.hinacle.baseapplication.R
 import com.hinacle.baseapplication.databinding.DialogBottomSheetTest0Binding

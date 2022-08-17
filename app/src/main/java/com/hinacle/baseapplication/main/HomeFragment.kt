@@ -16,10 +16,6 @@ class HomeFragment private constructor() : AppFragment(R.layout.fragment_home) {
         super.initView()
 //        viewBinding.webview.loadUrl()
 
-//        newGenjiDialog {
-//            layoutId = R.layout.dialog_layout_bubble
-//            unLeak = true
-//        }.showOnWindow(childFragmentManager)
     }
 
 

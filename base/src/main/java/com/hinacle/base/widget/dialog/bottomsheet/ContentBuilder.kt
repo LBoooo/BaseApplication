@@ -1,4 +1,4 @@
-package com.hinacle.base.widget.dialog
+package com.hinacle.base.widget.dialog.bottomsheet
 
 import android.content.Context
 import android.view.LayoutInflater
