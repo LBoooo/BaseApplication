@@ -1,14 +1,13 @@
 package com.hinacle.baseapplication.main
 
 import android.view.View
-import androidx.viewbinding.ViewBinding
 import com.hinacle.base.databinding.HeaderAwesomeBinding
 import com.hinacle.base.databinding.WidgetTitleNormalBinding
 import com.hinacle.base.util.dp
 import com.hinacle.base.util.fadeIn
 import com.hinacle.base.util.fadeOut
-import com.hinacle.base.util.logcat.logcat
-import com.hinacle.base.widget.dialog.AwesomeHeaderBuilder
+import com.hinacle.base.util.getResColor
+import com.hinacle.base.widget.dialog.ExFullHeaderBuilder
 import com.hinacle.base.widget.dialog.BottomSheetDialog
 import com.hinacle.base.widget.dialog.ContentBuilder
 import com.hinacle.baseapplication.R
@@ -59,49 +58,35 @@ class FooterBuilder : ContentBuilder<DialogBottomFootBinding>() {
     }
 }
 
-class AnimHeadBuilder(bsDialog:BottomSheetDialog) : AwesomeHeaderBuilder<DialogHeaderAnimBinding>(bsDialog) {
+class AnimHeadBuilder(bsDialog: BottomSheetDialog) :
+    ExFullHeaderBuilder<DialogHeaderAnimBinding>(bsDialog) {
     override val layoutId: Int = R.layout.dialog_header_anim
 
-    override  fun onExpend (){
+    override fun onExpanded() {
         viewBinding.title.fadeOut(400, endStatus = View.INVISIBLE)
         viewBinding.titleBackBtn.fadeIn(400)
     }
 
-    override fun onClose(){
+    override fun onCollapsed() {
         viewBinding.titleBackBtn.fadeOut(400, endStatus = View.INVISIBLE)
         viewBinding.title.fadeIn(400)
     }
 
-    override val roundAnimationView = viewBinding.titleLayout
-    override val fillLayout: View by lazy {
-        viewBinding.fillView
-    }
-    override val fillView: View
-        get() = viewBinding.fillView
-
 }
 
-class AnimHeadBuilder1(bsDialog:BottomSheetDialog) : AwesomeHeaderBuilder<HeaderAwesomeBinding>(bsDialog,false,15f.dp,0xffffff) {
+class AnimHeadBuilder1(bsDialog: BottomSheetDialog) :
+    ExFullHeaderBuilder<HeaderAwesomeBinding>(bsDialog, true, 15f.dp, getResColor(com.hinacle.base.R.color.app_white)) {
     override val layoutId: Int = com.hinacle.base.R.layout.header_awesome
 
-    override  fun onExpend (){
-        viewBinding.littleTitle.fadeOut(400, endStatus = View.INVISIBLE)
-        viewBinding.titleLay.fadeIn(400)
+    override fun onExpanded() {
+        super.onExpanded()
+        viewBinding.closeBtn.fadeIn(400 )
+        viewBinding.title.fadeOut(400)
     }
 
-    override fun onClose(){
-        viewBinding.titleLay.fadeOut(400, endStatus = View.INVISIBLE)
-        viewBinding.littleTitle.fadeIn(400)
+    override fun onCollapsed() {
+        super.onCollapsed()
+        viewBinding.closeBtn.fadeOut(400)
+        viewBinding.title.fadeIn(400)
     }
-
-    override val roundAnimationView by lazy {
-        viewBinding.hideTitle
-    }
-    override val fillLayout: View by lazy {
-        viewBinding.fillLayout
-    }
-    override val fillView: View by lazy {
-        viewBinding.fillView
-    }
-
 }

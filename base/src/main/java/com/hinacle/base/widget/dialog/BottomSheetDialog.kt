@@ -33,12 +33,13 @@ class BottomSheetDialog(
                         window.decorView.fitsSystemWindows = true
                         @Suppress("DEPRECATION")
                         window.decorView.systemUiVisibility =
-                            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE //View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                     }
                 }
                 dialogThemeFun = {
-                    com.hinacle.appdialog.R.style.AppDialogFullScreen
+                   R.style.AppDialogFullScreen
                 }
+
             }
             lateinit var behavior: BottomSheetBehavior<*>
             bindingListenerFun(DialogBottomSheetBinding::class) { binding, dialog ->

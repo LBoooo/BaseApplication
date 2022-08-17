@@ -1,17 +1,14 @@
 package com.hinacle.baseapplication.main
 
-import androidx.fragment.app.Fragment
-import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.drake.statusbar.darkMode
-import com.drake.statusbar.immersive
 import com.hinacle.base.app.AppActivity
 import com.hinacle.base.binding.bindPager
-import com.hinacle.base.util.onStart
 import com.hinacle.baseapplication.R
 import com.hinacle.baseapplication.databinding.ActivityAppMainBinding
-import com.hinacle.baseapplication.simple.ScreenActivity
+import com.hinacle.baseapplication.simple.LoginDialog
+import com.hinacle.baseapplication.simple.LoginDialogHelper
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,10 +18,8 @@ class MainActivity : AppActivity(R.layout.activity_app_main) {
     override fun initView() {
         super.initView()
 //        immersive(darkMode = true)
-//        darkMode()
+        darkMode()
         setupSmoothBottomMenu()
-
-
     }
 
     private fun setupSmoothBottomMenu() {
@@ -59,6 +54,8 @@ class MainActivity : AppActivity(R.layout.activity_app_main) {
         viewBinding.bottomBar.setOnItemSelectedListener {
             viewBinding.navViewPager.setCurrentItem(it, false)
         }
+
+        LoginDialogHelper.loginDialog = LoginDialog.builder(supportFragmentManager).also { it.init() }
 
     }
 

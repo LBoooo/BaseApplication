@@ -5,6 +5,7 @@ import android.view.View
 import by.kirich1409.viewbindingdelegate.viewBinding
 import coil.load
 import com.drake.net.utils.scope
+import com.drake.net.utils.withIO
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
 import com.hinacle.appdialog.AppDialog
@@ -24,6 +25,7 @@ import com.hinacle.base.widget.statelayout.state
 import com.hinacle.baseapplication.R
 import com.hinacle.baseapplication.databinding.DialogBottomSheetTest0Binding
 import com.hinacle.baseapplication.databinding.FragmentRecommendBinding
+import com.hinacle.baseapplication.simple.LoginDialogHelper
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -64,20 +66,16 @@ class RecommendFragment : AppFragment(R.layout.fragment_recommend) {
             )
 
         if (i == 1)
+//            scope {
+//                withIO {
+//                    LoginDialogHelper.loginDialog?.show()
+//                }
+//            }
+
 //            BottomDialog.builder(requireActivity()) {
 //
 //            }.show()
-            newAppDialog {
-                dialogStatusBarColor = Color.TRANSPARENT
-                layoutId = R.layout.test_full_dialog
-                isFullVerticalOverStatusBar = true
-                isFullHorizontal = true
-                unLeak = true
-                dialogThemeFun = {
-//                setStyle(STYLE_NO_FRAME,android.R.style.Theme_Holo_Light)
-                    com.hinacle.appdialog.R.style.AppDialogFullScreen
-                }
-            }.showOnWindow(childFragmentManager)
+            LoginDialogHelper.loginDialog?.show()
         if (i == 2){
 //            com.hinacle.base.widget.dialog.BottomDialog(requireContext()).apply {
 //
@@ -130,14 +128,13 @@ class RecommendFragment : AppFragment(R.layout.fragment_recommend) {
 
                 }
             }
-
         }
     }
 
     private val bsd : BottomSheetDialog by lazy {
-        BottomSheetDialog(childFragmentManager , isUseFullScreen = false).apply {
-//            header(AnimHeadBuilder1(this))
-            header(HeaderBuilder())
+        BottomSheetDialog(childFragmentManager , isUseFullScreen = true).apply {
+            header(AnimHeadBuilder1(this))
+//            header(HeaderBuilder())
             content(ContentBuilder())
             footer(FooterBuilder())
 

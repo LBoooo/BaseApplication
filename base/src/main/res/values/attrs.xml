@@ -243,10 +243,4 @@
     </declare-styleable>
     <!--                  stateLayout end                    -->
 
-    //背景色
-    <attr name="bd_bg_color" format="color" />
-    //导航栏色
-    <attr name="bd_nav_color" format="color" />
-    //toolbar圆角
-    <attr name="bd_bar_radius" format="dimension" />
 </resources>

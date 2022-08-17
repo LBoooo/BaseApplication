@@ -12,7 +12,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:background="@color/app_white"
+        android:background="@color/app_transparent"
         android:layout_height="@dimen/app_title">
 
         <androidx.appcompat.widget.AppCompatImageView

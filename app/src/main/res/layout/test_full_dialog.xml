@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <View
+            android:background="@color/app_transparent"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
+
+        <View
+            android:layout_weight="1"
             android:background="@color/app_green_0"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_height="0dp"/>
+    </LinearLayout>
 </layout>
