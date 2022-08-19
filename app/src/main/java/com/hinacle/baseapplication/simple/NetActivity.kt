@@ -3,6 +3,9 @@ package com.hinacle.baseapplication.simple
 import androidx.activity.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.hinacle.base.app.AppActivity
+import com.hinacle.base.util.logcat.logcat
+import com.hinacle.base.util.onShakeClickListener
+import com.hinacle.base.util.toast.toast
 import com.hinacle.baseapplication.R
 import com.hinacle.baseapplication.databinding.ActivityNetBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,14 +25,29 @@ class NetActivity : AppActivity(R.layout.activity_net) {
 
 
     override fun initView() {
-
         with(viewBinding) {
+            refreshBtn.onShakeClickListener {
+                viewModel.pagingListData.refresh()
+            }
 
+            loadMoreBtn.onShakeClickListener {
+                viewModel.pagingListData.loadMore()
+            }
         }
-
     }
 
     override fun initData() {
+        viewModel.pagingListData.pagedList.observe(this){
+            logcat { it.toString() }
+        }
+
+        viewModel.pagingListData.pageStep.observe(this){
+            // 刷新 加载更多 数据状态
+            logcat { it.name }
+        }
+
+
+
 //        // 作用域全局 慎用
 //        scope {
 //
@@ -57,13 +75,15 @@ class NetActivity : AppActivity(R.layout.activity_net) {
 
         // 以上是net网络框架的简单用法 为了符合mvvm设计模式 请使用以下方式
 
-        // 请求网络获取数据 可以在具体位置时访问
-        viewModel.getData()
+//        // 请求网络获取数据 可以在具体位置时访问
+//        viewModel.getData()
+//
+//        // 注册请求回调
+//        viewModel.getLiveData.observe(this) {
+//
+//        }
 
-        // 注册请求回调
-        viewModel.getLiveData.observe(this) {
 
-        }
 
 
 

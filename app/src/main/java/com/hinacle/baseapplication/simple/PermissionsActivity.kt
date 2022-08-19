@@ -66,6 +66,8 @@ class PermissionsActivity : AppActivity(R.layout.activity_permissions) {
                  toast { it.getAddressLine(0) }
              }
         }
+
+
     }
 
     @OnShowRationale(Manifest.permission.ACCESS_FINE_LOCATION)

@@ -4,13 +4,24 @@
 
     <LinearLayout
         android:id="@+id/container"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <include
             layout="@layout/widget_title_normal"
-            app:title="@{`网络相关`}"/>
+            app:title="@{`网络相关`}" />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/refreshBtn"
+            android:text="刷新" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/loadMoreBtn"
+            android:text="加载" />
     </LinearLayout>
 </layout>

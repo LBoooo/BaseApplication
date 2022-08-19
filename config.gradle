@@ -1,4 +1,6 @@
 ext {
+
+    kotlinVersion = "1.7.0"
     // 框架库 官方稳定 最优做法 api:全模块 impl:本模块
     appFrame = [
             "api_appcompat"          : "androidx.appcompat:appcompat:1.4.2",
@@ -74,9 +76,6 @@ ext {
             "kapt_permissions"    : "com.github.permissions-dispatcher:permissionsdispatcher-processor:4.9.2",
             // banner
             "banner"              : "com.github.zhpanvip:bannerviewpager:3.5.6",
-            // 底部弹窗 自己实现也可以 简单功能
-//            "bottom_sheet_dialog" : "com.github.Vove7.BottomDialog:bottomdialog:2.3.0",
-//            "dialog_":"com.github.q876625596:GenjiDialogV2:1.4.1"
     ]
 
 }

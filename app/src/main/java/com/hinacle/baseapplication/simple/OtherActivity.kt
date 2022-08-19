@@ -6,8 +6,6 @@ import com.hinacle.base.datastore.getDataStore
 import com.hinacle.base.datastore.saveDataStore
 import com.hinacle.base.util.*
 import com.hinacle.base.util.logcat.logcat
-import com.hinacle.base.util.rxbus.RxBus
-import com.hinacle.base.util.rxbus.receive
 import com.hinacle.base.util.rxbus.receiveSticky
 import com.hinacle.base.util.toast.toast
 import com.hinacle.baseapplication.R
@@ -18,7 +16,7 @@ class OtherActivity : AppActivity(R.layout.activity_other) {
     override fun initView() {
         super.initView()
         // 获取资源文件 ResourceUtil
-        // 正则校验 RegexUtil
+        // 正则校验 RegexUtilx
         // 防止重复点击 ViewUtil
         // 启动activity LunchUtil onStart ,带返回参数 onStartForResultLaunch
         // 数值尺寸转换 DensityUtil

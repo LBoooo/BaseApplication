@@ -3,6 +3,7 @@ package com.hinacle.baseapplication.simple
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.scopeNetLife
 import androidx.lifecycle.viewModelScope
+import com.hinacle.base.data.Paging
 import com.hinacle.base.util.logcat.LogPriority
 import com.hinacle.base.util.logcat.logcat
 import com.hinacle.base.vm.AppViewModel
@@ -11,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel // hilt注解 注入当前viewModel
-class NetViewModel @Inject constructor( ) : AppViewModel() {
+class NetViewModel @Inject constructor() : AppViewModel() {
 
     // 可以用注解 也可以用代理 写法也很多样
     // eg：lazy代理 val netModel by lazy { NetModel() }
@@ -37,6 +38,20 @@ class NetViewModel @Inject constructor( ) : AppViewModel() {
             .onFailure {}
     }
 
+//    lateinit var pagingData: LiveData<Listing<String>>
+
+
+    private fun requestPaging(page: Int, step: Int) = scopeNetLife {
+        logcat { "请求第${page}页的数据" }
+        val data = netModel.getPagingData(page,step)
+        pagingListData.pagedList.postValue(data)
+    }
+
+    val pagingListData: Paging<String> =  Paging<String>().apply {
+        request = {
+            requestPaging(page, step)
+        }
+    }
 
     /*
     这是google官方推荐写法  给外部暴露的数据使用livedata无法改变数据 内部使用MutableLiveData更改数据
@@ -58,6 +73,6 @@ class NetViewModel @Inject constructor( ) : AppViewModel() {
 
     override fun onCleared() {
         super.onCleared()
-        logcat(LogPriority.ERROR){ "viewModel.onCleared" }
+        logcat(LogPriority.ERROR) { "viewModel.onCleared" }
     }
 }
