@@ -7,9 +7,9 @@ import android.view.inputmethod.InputMethodManager
 /**
  * 打开软键盘
  */
+@Suppress("unUsed")
 fun View.showKeyboard(): Boolean {
-    val imm = context
-        .getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     requestFocus()
     return imm.showSoftInput(this, InputMethodManager.RESULT_UNCHANGED_SHOWN)
 }
@@ -17,9 +17,9 @@ fun View.showKeyboard(): Boolean {
 /**
  * 关闭软键盘
  */
+@Suppress("unUsed")
 fun View.hideKeyboard(): Boolean {
-    val imm = context
-        .getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     return imm.hideSoftInputFromWindow(this.windowToken, InputMethodManager.RESULT_UNCHANGED_SHOWN)
 }
 

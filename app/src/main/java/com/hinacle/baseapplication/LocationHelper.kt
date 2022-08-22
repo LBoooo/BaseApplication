@@ -51,7 +51,7 @@ object LocationHelper {
       fun getLastLocation(): Location? {
         var location: Location? = null
         val locationManager = AppUtil.application
-            .getSystemService(LOCATION_SERVICE) as LocationManager ?: return null
+            .getSystemService(LOCATION_SERVICE) as LocationManager
         val providers = locationManager.getProviders(true)
         for (provider in providers) {
             val l = locationManager.getLastKnownLocation(provider) ?: continue

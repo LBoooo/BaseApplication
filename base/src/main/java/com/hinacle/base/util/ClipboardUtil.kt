@@ -11,6 +11,7 @@ import android.content.Context
  * @param label: 用户可见的对复制数据的描述
  * @return 是否复制成功
  */
+@Suppress("unUsed")
 fun clipPlainText(text: CharSequence, label: CharSequence = ""): Boolean {
     val cm = AppUtil.application.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
     val clipData = ClipData.newPlainText(label, text)

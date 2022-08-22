@@ -5,9 +5,11 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.hinacle.base.app.AppActivity
 import com.hinacle.base.util.logcat.logcat
 import com.hinacle.base.util.onShakeClickListener
+import com.hinacle.base.util.rxbus.receiveSticky
 import com.hinacle.base.util.toast.toast
 import com.hinacle.baseapplication.R
 import com.hinacle.baseapplication.databinding.ActivityNetBinding
+import com.hinacle.baseapplication.main.MessageFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint // hilt注解 注入当前activity
@@ -34,6 +36,7 @@ class NetActivity : AppActivity(R.layout.activity_net) {
                 viewModel.pagingListData.loadMore()
             }
         }
+
     }
 
     override fun initData() {
@@ -47,9 +50,14 @@ class NetActivity : AppActivity(R.layout.activity_net) {
         }
 
 
+        receiveSticky<MessageFragment.PostTest> {
+            toast { "收到粘性事件--->>${data}" }
+        }
 
 //        // 作用域全局 慎用
 //        scope {
+//
+//        }.finally{
 //
 //        }
 //
@@ -66,6 +74,8 @@ class NetActivity : AppActivity(R.layout.activity_net) {
 //        // 作用域 当前activity activity销毁时自动取消 可捕获异常 走onError回调
 //        scopeNetLife {
 ////            viewModel.getData()
+//        }.finally {
+//
 //        }
 //
 //        // 开始时自动显示loading 结束时自动取消loading

@@ -67,7 +67,7 @@ class ClipActivity : AppActivity(R.layout.widget_album_clip) {
     }
 
     override fun onTitleButtonClick(v: View) {
-        val name = "${cacheDir.absolutePath}/clip/${md5((currentTimeMillis).toString())}.jpg"
+        val name = "${cacheDir.absolutePath}/clip/${currentTimeMillis.toString().md5()}.jpg"
         val path = getResult()?.writeToFile(name)
         if (path.isNullOrEmpty()) logcat { "图片保存失败" }
         path?.apply {

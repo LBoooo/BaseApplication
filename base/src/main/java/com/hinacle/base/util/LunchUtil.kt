@@ -8,6 +8,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 
+
 /**
  * 从Activity启动Activity 不携带参数 推荐携带参数方法
  */
@@ -15,6 +16,7 @@ inline fun <reified T : Activity> Activity.onStart() {
     val mIntent = Intent(this, T::class.java)
     startActivity(mIntent)
 }
+
 /**
  * 从Activity启动Activity 携带参数
  */
@@ -32,6 +34,7 @@ inline fun <reified T : Activity> Context.onStart() {
     mIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
     startActivity(mIntent)
 }
+
 /**
  * 从Context启动Activity 携带参数
  */

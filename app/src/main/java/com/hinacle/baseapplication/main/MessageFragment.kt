@@ -3,7 +3,7 @@ package com.hinacle.baseapplication.main
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.drake.net.utils.scope
 import com.hinacle.base.app.AppFragment
-import com.hinacle.base.util.rxbus.transmitSticky
+import com.hinacle.base.util.rxbus.postSticky
 import com.hinacle.baseapplication.R
 import dagger.hilt.android.AndroidEntryPoint
 import com.hinacle.baseapplication.databinding.FragmentMessageBinding
@@ -64,11 +64,15 @@ class MessageFragment : AppFragment(R.layout.fragment_message) {
 
 //                RxBus.getInstance().postSticky("发送粘性事件")
 
-                transmitSticky { "发送粘性事件" }
+                postSticky { "发送粘性事件" }
+
+                postSticky { PostTest("发送粘性事件123") }
             }
 
         }
 
     }
+
+    class PostTest(var data :String)
 
 }

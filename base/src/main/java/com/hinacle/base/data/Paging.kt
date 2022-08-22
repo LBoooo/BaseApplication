@@ -3,6 +3,11 @@ package com.hinacle.base.data
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations.map
 
+/**
+ * 请求更多时页码自动+1 刷新时归零
+ * 加载更多失败时跳过当前页码
+ * 没有更多数据时不请求网络数据
+ */
 open class Paging<T> {
     var page = 0
     var step = 2
@@ -23,7 +28,7 @@ open class Paging<T> {
             }
         }
     }
-    private var isCanLoadMore = false
+    private var isCanLoadMore = true
 
     var request = {}
 

@@ -5,7 +5,6 @@ import android.app.KeyguardManager
 import android.content.Context
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
-import android.content.res.Resources
 import android.os.Build
 import android.os.PowerManager
 import android.provider.Settings
@@ -32,27 +31,27 @@ fun Activity.screenSize(): Pair<Int, Int> {
  */
 val screenSize
     get() = Pair(
-        Resources.getSystem().displayMetrics.widthPixels,
-        Resources.getSystem().displayMetrics.heightPixels
+        AppUtil.application.resources.displayMetrics.widthPixels,
+        AppUtil.application.resources.displayMetrics.heightPixels
     )
 
 /**
  * 获取屏幕密度
  */
-val screenDensity
-    get() = Resources.getSystem().displayMetrics.density
-
+//val screenDensity
+//    get() = Resources.getSystem().displayMetrics.density
+inline val screenDensity get() = AppUtil.application.resources.displayMetrics.density
 /**
  * 获取屏幕DPI
  */
 val screenDPI
-    get() = Resources.getSystem().displayMetrics.densityDpi
+    get() = AppUtil.application.resources.displayMetrics.densityDpi
 
 /**
  * 获取屏幕方向
  **/
 val screenOrientation
-    get() = Resources.getSystem().configuration.orientation
+    get() = AppUtil.application.resources.configuration.orientation
 
 /**
  * 设置横屏
@@ -129,6 +128,7 @@ var Activity.isFullScreen: Boolean
 /**
  * 设置全屏
  */
+@Suppress("unUsed")
 fun Activity.setFullScreen() {
     if (!isFullScreen) {
         isFullScreen = true
@@ -138,6 +138,7 @@ fun Activity.setFullScreen() {
 /**
  * 设置非全屏
  */
+@Suppress("unUsed")
 fun Activity.setNonFullScreen() {
     if (isFullScreen) {
         isFullScreen = false
@@ -147,6 +148,7 @@ fun Activity.setNonFullScreen() {
 /**
  * 屏幕是否亮屏
  */
+@Suppress("unUsed")
 val isScreenOn: Boolean
     get() {
         val powerManager =
@@ -157,24 +159,26 @@ val isScreenOn: Boolean
 /**
  * 屏幕是否熄灭
  */
-val isScreenOff
-    get() = !isScreenOn
+@Suppress("unUsed")
+val isScreenOff get() = !isScreenOn
 
 /**
  * 屏幕是否锁屏
  */
+@Suppress("unUsed")
 val isScreenLocked
     get() = (AppUtil.application.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager).isKeyguardLocked
 
 /**
  * 屏幕是否解锁
  */
-val isScreenUnlocked
-    get() = !isScreenLocked
+@Suppress("unUsed")
+val isScreenUnlocked get() = !isScreenLocked
 
 /**
  * 判断和设置是否保持屏幕常亮，只作用于当前窗口
  */
+@Suppress("unUsed")
 var Activity.isKeepScreenOn: Boolean
     get() {
         val flag = WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
@@ -190,6 +194,7 @@ var Activity.isKeepScreenOn: Boolean
 /**
  * 保持屏幕常亮，只作用于当前窗口
  */
+@Suppress("unUsed")
 fun Activity.setKeepScreenOn() {
     if (!isKeepScreenOn) {
         isKeepScreenOn = true
@@ -199,6 +204,7 @@ fun Activity.setKeepScreenOn() {
 /**
  * 取消保持屏幕常亮，只作用于当前窗口
  */
+@Suppress("unUsed")
 fun Activity.setNonKeepScreenOn() {
     if (isKeepScreenOn) {
         isKeepScreenOn = false
@@ -209,6 +215,7 @@ fun Activity.setNonKeepScreenOn() {
  * 获取自动锁屏时间
  * @throws Settings.SettingNotFoundException
  */
+@Suppress("unUsed")
 fun getScreenAutoLockTime() = try {
     Settings.System.getInt(AppUtil.application.contentResolver, Settings.System.SCREEN_OFF_TIMEOUT)
 } catch (e: Settings.SettingNotFoundException) {
@@ -220,6 +227,7 @@ fun getScreenAutoLockTime() = try {
  * 设置自动锁屏时间
  * @return 设置成功返回true
  */
+@Suppress("unUsed")
 @RequiresPermission(android.Manifest.permission.WRITE_SETTINGS)
 fun setScreenAutoLockTime(time: Int): Boolean =
     Settings.System.putInt(
@@ -232,6 +240,7 @@ fun setScreenAutoLockTime(time: Int): Boolean =
  * 设置永不自动锁屏，即自动锁屏时间为Int.MAX_VALUE
  * @return 设置成功返回true
  */
+@Suppress("unUsed")
 @RequiresPermission(android.Manifest.permission.WRITE_SETTINGS)
 fun setScreenAutoLockNever(): Boolean = setScreenAutoLockTime(Int.MAX_VALUE)
 

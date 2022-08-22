@@ -43,13 +43,16 @@ class NetViewModel @Inject constructor() : AppViewModel() {
 
     private fun requestPaging(page: Int, step: Int) = scopeNetLife {
         logcat { "请求第${page}页的数据" }
-        val data = netModel.getPagingData(page,step)
+        val data = netModel.getPagingData(page, step)
         pagingListData.pagedList.postValue(data)
     }
 
-    val pagingListData: Paging<String> =  Paging<String>().apply {
+    val pagingListData: Paging<String> = Paging<String>().apply {
         request = {
             requestPaging(page, step)
+//                .finally { throwable ->
+//                    logcat { throwable?.message ?: "没有异常" }
+//                }
         }
     }
 

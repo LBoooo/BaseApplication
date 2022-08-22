@@ -37,6 +37,7 @@ internal class OnShakeClickListener<T : View>(
 }
 
 // 缩放动画 点击效果
+@Suppress("unUsed")
 fun View.scaleClickView(startScale: Float = 0.95f, endScale: Float = 1f) {
     val animation = ScaleAnimation(
         startScale, endScale,
@@ -49,7 +50,7 @@ fun View.scaleClickView(startScale: Float = 0.95f, endScale: Float = 1f) {
     startAnimation(animation)
 }
 
-
+@Suppress("unUsed")
 fun View.fadeOut(duration: Long = 800, endStatus: Int = View.GONE) {
     visibility = endStatus
     startAnimation(AlphaAnimation(1f, 0f).apply {
@@ -57,6 +58,7 @@ fun View.fadeOut(duration: Long = 800, endStatus: Int = View.GONE) {
     })
 }
 
+@Suppress("unUsed")
 fun View.fadeIn(duration: Long = 500) {
     visibility = View.VISIBLE
     startAnimation(AlphaAnimation(0f, 1f).apply {
@@ -68,24 +70,25 @@ fun View.fadeIn(duration: Long = 500) {
 /**
  * 当前View是否可见
  */
-val View.isVisible
-    get() = visibility == View.VISIBLE
+@Suppress("unUsed")
+inline val View.isVisible get() = visibility == View.VISIBLE
 
 /**
  * 当前View是否不可见
  */
-val View.isInvisible
-    get() = visibility == View.INVISIBLE
+@Suppress("unUsed")
+inline val View.isInvisible get() = visibility == View.INVISIBLE
 
 /**
  * 当前View是否隐藏
  */
-val View.isGone
-    get() = visibility == View.GONE
+@Suppress("unUsed")
+val View.isGone get() = visibility == View.GONE
 
 /**
  * 将View设置为隐藏
  */
+@Suppress("unUsed")
 fun View.setGone() {
     if (visibility != View.GONE) {
         visibility = View.GONE
@@ -95,6 +98,7 @@ fun View.setGone() {
 /**
  * 将View设置为可见
  */
+@Suppress("unUsed")
 fun View.setVisible() {
     if (visibility != View.VISIBLE) {
         visibility = View.VISIBLE
@@ -104,6 +108,7 @@ fun View.setVisible() {
 /**
  * 将View设置为不可见
  */
+@Suppress("unUsed")
 fun View.setInvisible() {
     if (visibility != View.INVISIBLE) {
         visibility = View.INVISIBLE
@@ -114,6 +119,7 @@ fun View.setInvisible() {
  * 设置View的宽度
  * @param width: 宽度值，单位为px
  */
+@Suppress("unUsed")
 fun View.setWidth(width: Int) {
     layoutParams = layoutParams.apply {
         this.width = width
@@ -124,6 +130,7 @@ fun View.setWidth(width: Int) {
  * 设置View的高度
  * @param height: 高度值，单位为px
  */
+@Suppress("unUsed")
 fun View.setHeight(height: Int) {
     layoutParams = layoutParams.apply {
         this.height = height
@@ -135,6 +142,7 @@ fun View.setHeight(height: Int) {
  * @param width: 宽度值，单位为px
  * @param height: 高度值，单位为px
  */
+@Suppress("unUsed")
 fun View.setWidthAndHeight(width: Int, height: Int) {
     layoutParams = layoutParams.apply {
         this.width = width
@@ -146,12 +154,13 @@ fun View.setWidthAndHeight(width: Int, height: Int) {
  * 将View转换为Bitmap
  * @param  scale: 生成的Bitmap相对于原View的大小比例，范围为0~1.0
  */
+@Suppress("unUsed")
 fun View.toBitmap(scale: Float = 1.0F): Bitmap? = viewToBitmap(this, scale)
-
 
 /**
  * 设置View的padding
  */
+@Suppress("unUsed")
 fun View.setNewPadding(
     left: Int = paddingLeft,
     top: Int = paddingTop,
@@ -182,6 +191,7 @@ private fun View.measureView() {
  * 获取View的高度
  * 如果是“math_parent”属性则无法获取，值为0。
  */
+@Suppress("unUsed")
 val View.viewHeight: Int
     get() {
         measureView()
@@ -192,6 +202,7 @@ val View.viewHeight: Int
  * 获取View的宽度
  * 如果是“math_parent”属性则无法获取，值为0。
  */
+@Suppress("unUsed")
 val View.viewWidth: Int
     get() {
         measureView()
@@ -201,47 +212,47 @@ val View.viewWidth: Int
 /**
  * 获取TextView的String内容
  */
-val TextView.textString: String
-    get() = text.toString()
+@Suppress("unUsed")
+inline val TextView.textString: String get() = text.toString()
 
 /**
  * 获取TextView的String内容长度
  */
-val TextView.textLength: Int
-    get() = text.length
+@Suppress("unUsed")
+inline val TextView.textLength: Int get() = text.length
 
 /**
  * 判断TextView的内容是否为空
  */
-val TextView.isTextEmpty: Boolean
-    get() = text.isEmpty()
+@Suppress("unUsed")
+inline val TextView.isTextEmpty: Boolean get() = text.isEmpty()
 
 /**
  * 判断TextView的内容是否为null或空
  */
-val TextView.isTextNullOrEmpty: Boolean
-    get() = text.isNullOrEmpty()
+@Suppress("unUsed")
+inline val TextView.isTextNullOrEmpty: Boolean get() = text.isNullOrEmpty()
 
 /**
  * 判断TextView的内容是否为非空
  */
-val TextView.isTextNotEmpty: Boolean
-    get() = !isTextEmpty
+@Suppress("unUsed")
+val TextView.isTextNotEmpty: Boolean get() = !isTextEmpty
 
 /**
  * 判断TextView的内容是否为空白
  */
-val TextView.isTextBlank: Boolean
-    get() = text.isBlank()
+@Suppress("unUsed")
+val TextView.isTextBlank: Boolean get() = text.isBlank()
 
 /**
  * 判断TextView的内容是否为null或空白
  */
-val TextView.isTextNullOrBlank: Boolean
-    get() = text.isNullOrBlank()
+@Suppress("unUsed")
+val TextView.isTextNullOrBlank: Boolean get() = text.isNullOrBlank()
 
 /**
  * 判断TextView的内容是否为非空白
  */
-val TextView.isTextNotBlank: Boolean
-    get() = text.isNotBlank()
+@Suppress("unUsed")
+val TextView.isTextNotBlank: Boolean get() = text.isNotBlank()

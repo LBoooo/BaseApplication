@@ -50,6 +50,7 @@ class RxBus private constructor() {
         return mBus.hasObservers()
     }
 
+    @Suppress("unUsed")
     fun reset() {
         mDefaultInstance = null
     }
@@ -96,6 +97,7 @@ class RxBus private constructor() {
     /**
      * 根据eventType获取Sticky事件
      */
+    @Suppress("unUsed")
     inline fun <reified T : Any> getStickyEvent(): T? {
         synchronized(mStickyEventMap) {
             return mStickyEventMap[T::class.java] as? T

@@ -5,14 +5,14 @@ import androidx.lifecycle.LifecycleOwner
 /**
  * RxBus发送普通事件
  */
-inline fun <reified T : Any> transmit(block: () -> T) {
+inline fun <reified T : Any> post(block: () -> T) {
     RxBus.getInstance().post(block.invoke())
 }
 
 /**
  * RxBus发送粘性事件
  */
-inline fun <reified T : Any> transmitSticky(block: () -> T) {
+inline fun <reified T : Any> postSticky(block: () -> T) {
     RxBus.getInstance().postSticky(block.invoke())
 }
 
@@ -51,4 +51,11 @@ fun removeAllSticky() {
 /**
  * 是否有接收者
  */
-val isHaveReceiver get() = RxBus.getInstance().hasObservers()
+inline val isHaveReceiver get() = RxBus.getInstance().hasObservers()
+
+/**
+ * 释放rxBus
+ */
+fun resetRxbus(){
+    RxBus.getInstance().reset()
+}

@@ -14,7 +14,7 @@ ext {
             // 支持标记为 @Serializable 的 Kotlin 类和标准集合。
             // 提供 JSON、Protobuf、CBOR、Hocon 和 Properties 格式。
             // 完整的多平台支持：JVM、JS 和 Native。
-            "api_serialization"      : "org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3",
+            "api_serialization"      : "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0",
             // retrofit2
             "api_retrofit2"          : "com.squareup.retrofit2:retrofit:2.9.0",
             // rxAndroid

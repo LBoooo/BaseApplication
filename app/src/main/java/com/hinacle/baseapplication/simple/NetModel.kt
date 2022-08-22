@@ -4,6 +4,7 @@ import com.hinacle.base.vm.AppModel
 import com.hinacle.baseapplication.ApiServices
 import kotlin.math.min
 
+
 class NetModel : AppModel() {
 
     // get 请求 param:参数
@@ -25,6 +26,9 @@ class NetModel : AppModel() {
     suspend fun getPagingData(page: Int, step: Int = 2): List<String> {
         if (page * step >= data.size) {
             return emptyList()
+        }
+        if (page == 3){
+            throw Exception(  "抛出异常")
         }
         return data.slice(page * step until min((page + 1) * step, data.size))
     }
