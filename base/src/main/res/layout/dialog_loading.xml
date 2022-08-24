@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.hinacle.base.widget.corner.RoundCornerLinearLayout
+        android:id="@+id/loading"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:alpha="0.9"
+        app:round_corner_radius="12dp"
+        android:background="#a7333333"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/loadingIv"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/svg_icon_loading" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/loadingTv"
+            android:text="@string/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="8dp"
+            android:singleLine="true"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+    </com.hinacle.base.widget.corner.RoundCornerLinearLayout>
+
+</layout>

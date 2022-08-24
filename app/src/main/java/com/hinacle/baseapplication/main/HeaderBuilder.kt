@@ -1,7 +1,6 @@
 package com.hinacle.baseapplication.main
 
 import android.view.View
-import com.hinacle.base.databinding.HeaderAwesomeBinding
 import com.hinacle.base.databinding.WidgetTitleNormalBinding
 import com.hinacle.base.util.dp
 import com.hinacle.base.util.fadeIn
@@ -74,19 +73,19 @@ class AnimHeadBuilder(bsDialog: BottomSheetDialog) :
 
 }
 
-class AnimHeadBuilder1(bsDialog: BottomSheetDialog) :
-    ExFullHeaderBuilder<HeaderAwesomeBinding>(bsDialog, true, 15f.dp, getResColor(com.hinacle.base.R.color.app_white)) {
-    override val layoutId: Int = com.hinacle.base.R.layout.header_awesome
-
-    override fun onExpanded() {
-        super.onExpanded()
-        viewBinding.closeBtn.fadeIn(400 )
-        viewBinding.title.fadeOut(400)
-    }
-
-    override fun onCollapsed() {
-        super.onCollapsed()
-        viewBinding.closeBtn.fadeOut(400)
-        viewBinding.title.fadeIn(400)
-    }
-}
+//class AnimHeadBuilder1(bsDialog: BottomSheetDialog) :
+//    ExFullHeaderBuilder<HeaderAwesomeBinding>(bsDialog, true, 15f.dp, getResColor(com.hinacle.base.R.color.app_white)) {
+//    override val layoutId: Int = com.hinacle.base.R.layout.header_awesome
+//
+//    override fun onExpanded() {
+//        super.onExpanded()
+//        viewBinding.closeBtn.fadeIn(400 )
+//        viewBinding.title.fadeOut(400)
+//    }
+//
+//    override fun onCollapsed() {
+//        super.onCollapsed()
+//        viewBinding.closeBtn.fadeOut(400)
+//        viewBinding.title.fadeIn(400)
+//    }
+//}

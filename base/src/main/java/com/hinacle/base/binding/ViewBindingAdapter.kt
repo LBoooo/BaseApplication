@@ -1,6 +1,7 @@
 package com.hinacle.base.binding
 
 import android.widget.ImageView
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -9,6 +10,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import coil.load
 import com.hinacle.base.R
+import com.hinacle.base.util.rotation
 import com.hinacle.base.widget.title.TitleLayout
 
 // viewPager2 绑定 适配器
@@ -20,6 +22,10 @@ fun ViewPager2.bindPager(fm: FragmentManager, lifecycle: Lifecycle, vararg fragm
     }
 }
 
+@BindingAdapter("setLoadingAnim")
+fun setLoadingAnim(view: AppCompatImageView, res:Int){
+    view.rotation()
+}
 
 // 设置TitleLayout的标题 同<include -> title>
 @BindingAdapter("setAppTitle")

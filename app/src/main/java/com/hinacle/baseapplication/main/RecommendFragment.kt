@@ -131,8 +131,8 @@ class RecommendFragment : AppFragment(R.layout.fragment_recommend) {
 
     private val bsd : BottomSheetDialog by lazy {
         BottomSheetDialog(childFragmentManager , isUseFullScreen = true).apply {
-            header(AnimHeadBuilder1(this))
-//            header(HeaderBuilder())
+//            header(AnimHeadBuilder1(this))
+            header(HeaderBuilder())
             content(ContentBuilder())
             footer(FooterBuilder())
 

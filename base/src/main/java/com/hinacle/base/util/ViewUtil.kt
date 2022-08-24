@@ -1,11 +1,11 @@
 package com.hinacle.base.util
 
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
 import android.graphics.Bitmap
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AlphaAnimation
-import android.view.animation.Animation
-import android.view.animation.ScaleAnimation
+import android.view.animation.*
 import android.widget.TextView
 import java.util.concurrent.TimeUnit
 
@@ -67,23 +67,42 @@ fun View.fadeIn(duration: Long = 500) {
 }
 
 
+fun View.rotation(duration: Long = 2000) {
+//    startAnimation(RotateAnimation(0f, 360f, 0.5f, 0.5f).apply {
+//        this.duration = duration
+//        repeatCount = -1
+//        repeatMode = Animation.RESTART
+//    })
+
+
+    ObjectAnimator.ofFloat(this, "rotation", 0f, 360f).apply {
+        this.duration = duration
+        repeatCount = ValueAnimator.INFINITE
+        interpolator = LinearInterpolator()
+    }.start()
+
+}
+
 /**
  * 当前View是否可见
  */
 @Suppress("unUsed")
-inline val View.isVisible get() = visibility == View.VISIBLE
+inline val View.isVisible
+    get() = visibility == View.VISIBLE
 
 /**
  * 当前View是否不可见
  */
 @Suppress("unUsed")
-inline val View.isInvisible get() = visibility == View.INVISIBLE
+inline val View.isInvisible
+    get() = visibility == View.INVISIBLE
 
 /**
  * 当前View是否隐藏
  */
 @Suppress("unUsed")
-val View.isGone get() = visibility == View.GONE
+val View.isGone
+    get() = visibility == View.GONE
 
 /**
  * 将View设置为隐藏
@@ -176,7 +195,10 @@ fun View.setNewPadding(
 private fun View.measureView() {
     var params = layoutParams
     if (params == null) {
-        params = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        params = ViewGroup.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
     }
     val widthSpec = ViewGroup.getChildMeasureSpec(0, 0, params.width)
     val heightSpec = if (params.height > 0) {
@@ -213,46 +235,54 @@ val View.viewWidth: Int
  * 获取TextView的String内容
  */
 @Suppress("unUsed")
-inline val TextView.textString: String get() = text.toString()
+inline val TextView.textString: String
+    get() = text.toString()
 
 /**
  * 获取TextView的String内容长度
  */
 @Suppress("unUsed")
-inline val TextView.textLength: Int get() = text.length
+inline val TextView.textLength: Int
+    get() = text.length
 
 /**
  * 判断TextView的内容是否为空
  */
 @Suppress("unUsed")
-inline val TextView.isTextEmpty: Boolean get() = text.isEmpty()
+inline val TextView.isTextEmpty: Boolean
+    get() = text.isEmpty()
 
 /**
  * 判断TextView的内容是否为null或空
  */
 @Suppress("unUsed")
-inline val TextView.isTextNullOrEmpty: Boolean get() = text.isNullOrEmpty()
+inline val TextView.isTextNullOrEmpty: Boolean
+    get() = text.isNullOrEmpty()
 
 /**
  * 判断TextView的内容是否为非空
  */
 @Suppress("unUsed")
-val TextView.isTextNotEmpty: Boolean get() = !isTextEmpty
+val TextView.isTextNotEmpty: Boolean
+    get() = !isTextEmpty
 
 /**
  * 判断TextView的内容是否为空白
  */
 @Suppress("unUsed")
-val TextView.isTextBlank: Boolean get() = text.isBlank()
+val TextView.isTextBlank: Boolean
+    get() = text.isBlank()
 
 /**
  * 判断TextView的内容是否为null或空白
  */
 @Suppress("unUsed")
-val TextView.isTextNullOrBlank: Boolean get() = text.isNullOrBlank()
+val TextView.isTextNullOrBlank: Boolean
+    get() = text.isNullOrBlank()
 
 /**
  * 判断TextView的内容是否为非空白
  */
 @Suppress("unUsed")
-val TextView.isTextNotBlank: Boolean get() = text.isNotBlank()
+val TextView.isTextNotBlank: Boolean
+    get() = text.isNotBlank()

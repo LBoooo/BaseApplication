@@ -7,9 +7,11 @@
         <variable
             name="title"
             type="String" />
+
         <variable
             name="buttonColor"
             type="Integer" />
+
         <variable
             name="buttonText"
             type="String" />
@@ -18,16 +20,16 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:background="@color/app_white"
-        android:layout_height="@dimen/app_title">
+        android:layout_height="@dimen/app_title"
+        android:background="@color/app_white">
 
         <androidx.appcompat.widget.AppCompatImageView
             style="@style/AppImage"
-            android:padding="12dp"
-            android:src="@drawable/svg_icon_back"
             android:layout_width="@dimen/app_title"
             android:layout_height="@dimen/app_title"
             android:onClick="onBackClick"
+            android:padding="12dp"
+            android:src="@drawable/svg_icon_back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -39,8 +41,8 @@
             android:layout_marginStart="@dimen/app_title_space"
             android:layout_marginEnd="@dimen/app_title_space"
             android:ellipsize="end"
-            android:maxLines="1"
             android:gravity="center"
+            android:maxLines="1"
             android:text="@{title}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -48,16 +50,16 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="@dimen/app_title"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             style="@style/AppText"
-            android:textColor="@{buttonColor}"
-            android:text="@{buttonText}"
-            android:onClick="onTitleButtonClick"
+            android:layout_width="@dimen/app_title"
             android:layout_height="@dimen/app_title"
             android:gravity="center"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            android:onClick="onTitleButtonClick"
+            android:text="@{buttonText}"
+            android:textColor="@{buttonColor}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <View
             style="@style/HorizontalLine"

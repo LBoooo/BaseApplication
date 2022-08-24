@@ -1,6 +1,5 @@
 package com.hinacle.base.widget.dialog
 
-import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import androidx.fragment.app.FragmentManager
@@ -18,7 +17,6 @@ import com.hinacle.base.util.px
  * 可能需要延迟一秒弹出 以实现同步效果
  */
 class PermissionsRationaleDialog(
-    private val context: Context,
     val title: String, val depict: String
 ) {
     private lateinit var dialog: AppDialog

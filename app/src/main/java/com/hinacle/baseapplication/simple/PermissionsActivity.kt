@@ -13,7 +13,6 @@ import com.hinacle.base.util.location.registerLocation
 import com.hinacle.base.util.logcat.logcat
 import com.hinacle.base.util.onShakeClickListener
 import com.hinacle.base.util.toast.toast
-import com.hinacle.base.widget.dialog.PermissionsRationaleDialog
 import com.hinacle.baseapplication.R
 import com.hinacle.baseapplication.databinding.ActivityPermissionsBinding
 import permissions.dispatcher.*

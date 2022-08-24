@@ -13,6 +13,7 @@ class TestViewModelActivity :AppActivity(R.layout.activity_test_view_model) {
 
     val vm by viewModels<TestViewModel>()
     val vb by viewBinding(ActivityTestViewModelBinding::bind)
+
     override fun superOnCreate() {
         super.superOnCreate()
 

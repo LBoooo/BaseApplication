@@ -1,5 +1,6 @@
 package com.hinacle.baseapplication.simple
 
+import com.hinacle.base.util.logcat.logcat
 import com.hinacle.base.vm.AppModel
 import com.hinacle.baseapplication.ApiServices
 import kotlin.math.min
@@ -24,15 +25,15 @@ class NetModel : AppModel() {
 
 
     suspend fun getPagingData(page: Int, step: Int = 2): List<String> {
+        logcat { "获取第${page}页的数据" }
         if (page * step >= data.size) {
             return emptyList()
         }
-        if (page == 3){
-            throw Exception(  "抛出异常")
+        if (page == 3) {
+            throw Exception("抛出异常")
         }
         return data.slice(page * step until min((page + 1) * step, data.size))
     }
-
 
     val data = listOf("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10")
 }

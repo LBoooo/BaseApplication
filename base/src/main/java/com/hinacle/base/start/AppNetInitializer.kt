@@ -8,11 +8,12 @@ import com.drake.net.NetConfig
 import com.drake.net.cookie.PersistentCookieJar
 import com.drake.net.interceptor.LogRecordInterceptor
 import com.drake.net.okhttp.*
+import com.hinacle.appdialog.extensions.newAppDialog
 import com.hinacle.base.BuildConfig
 import com.hinacle.base.http.converter.SerializationConverter
 import com.hinacle.base.http.error.ErrorHandler
 import com.hinacle.base.http.interceptor.HttpRequestInterceptor
-import com.hinacle.base.widget.dialog.HttpLoadingDialog
+import com.hinacle.base.widget.dialog.loading.HttpLoadingDialog
 import okhttp3.Cache
 import java.util.concurrent.TimeUnit
 

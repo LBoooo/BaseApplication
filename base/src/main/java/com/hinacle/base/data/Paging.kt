@@ -11,8 +11,10 @@ import androidx.lifecycle.Transformations.map
 open class Paging<T> {
     var page = 0
     var step = 2
-    var pagedList: MutableLiveData<List<T>> = MutableLiveData()
-    var pageStep = map(pagedList) {
+    private var isCanLoadMore = true
+
+    val pagedList: MutableLiveData<List<T>> = MutableLiveData()
+    val pageStep = map(pagedList) {
         if (page == 0) {
             if (it.isEmpty()) {
                 PagerState.R_NO_DATA
@@ -28,7 +30,7 @@ open class Paging<T> {
             }
         }
     }
-    private var isCanLoadMore = true
+
 
     var request = {}
 

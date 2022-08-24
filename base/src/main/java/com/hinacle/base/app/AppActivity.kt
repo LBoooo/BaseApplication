@@ -3,9 +3,11 @@ package com.hinacle.base.app
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.hinacle.base.vm.AppViewModel
+import com.hinacle.base.widget.dialog.loading.loadingDialog
 
-abstract class AppActivity(private val layoutId: Int) : AppCompatActivity(layoutId) {
+abstract class AppActivity(layoutId: Int) : AppCompatActivity(layoutId) {
+
+    val loadingDialog by loadingDialog()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +27,7 @@ abstract class AppActivity(private val layoutId: Int) : AppCompatActivity(layout
     open fun initData() {}
 
     // 支持normal标题栏的返回函数
+    @Suppress("DEPRECATION")
     open fun onBackClick(v: View) {
         onBackPressed()
     }

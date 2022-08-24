@@ -38,9 +38,6 @@ class NetViewModel @Inject constructor() : AppViewModel() {
             .onFailure {}
     }
 
-//    lateinit var pagingData: LiveData<Listing<String>>
-
-
     private fun requestPaging(page: Int, step: Int) = scopeNetLife {
         logcat { "请求第${page}页的数据" }
         val data = netModel.getPagingData(page, step)

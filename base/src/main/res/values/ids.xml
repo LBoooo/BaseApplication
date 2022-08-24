@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--  loading dialog  -->
-    <item name="dialog_loading" type="layout" />
-    <item name="loadingTv" type="id" />
-    <item name="loadingIv" type="id" />
+<!--    <item name="dialog_loading" type="layout" />-->
+<!--    <item name="loadingTv" type="id" />-->
+<!--    <item name="loadingIv" type="id" />-->
     <!--  loading dialog  -->
 
     <!--  image watcher  -->

@@ -1,17 +1,28 @@
 package com.hinacle.baseapplication.simple
 
+import android.Manifest
 import androidx.activity.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.drake.net.utils.scopeNetLife
 import com.hinacle.base.app.AppActivity
+import com.hinacle.base.util.location.getAddress
+import com.hinacle.base.util.location.getLocation
 import com.hinacle.base.util.logcat.logcat
 import com.hinacle.base.util.onShakeClickListener
+import com.hinacle.base.util.permission.Permission
+import com.hinacle.base.util.permission.permission
+import com.hinacle.base.util.requestPermission
 import com.hinacle.base.util.rxbus.receiveSticky
 import com.hinacle.base.util.toast.toast
+import com.hinacle.base.widget.dialog.loading.dismissLoading
+import com.hinacle.base.widget.dialog.loading.showLoading
 import com.hinacle.baseapplication.R
 import com.hinacle.baseapplication.databinding.ActivityNetBinding
 import com.hinacle.baseapplication.main.MessageFragment
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
 
+@Permission(Manifest.permission.ACCESS_FINE_LOCATION)
 @AndroidEntryPoint // hilt注解 注入当前activity
 class NetActivity : AppActivity(R.layout.activity_net) {
 
@@ -26,10 +37,19 @@ class NetActivity : AppActivity(R.layout.activity_net) {
     private val viewModel by viewModels<NetViewModel>()
 
 
+//    private val permission by permission(Manifest.permission.ACCESS_FINE_LOCATION)
+
     override fun initView() {
         with(viewBinding) {
             refreshBtn.onShakeClickListener {
                 viewModel.pagingListData.refresh()
+
+//                showLoading()
+                // 调用showLoading函数 等同于上面
+//                    AppActivity::showLoading.invoke(this@NetActivity)
+                // 同上
+//                    (AppActivity::showLoading)(this@NetActivity)
+//                dismissLoading()
             }
 
             loadMoreBtn.onShakeClickListener {
@@ -40,11 +60,11 @@ class NetActivity : AppActivity(R.layout.activity_net) {
     }
 
     override fun initData() {
-        viewModel.pagingListData.pagedList.observe(this){
+        viewModel.pagingListData.pagedList.observe(this) {
             logcat { it.toString() }
         }
 
-        viewModel.pagingListData.pageStep.observe(this){
+        viewModel.pagingListData.pageStep.observe(this) {
             // 刷新 加载更多 数据状态
             logcat { it.name }
         }
@@ -94,11 +114,7 @@ class NetActivity : AppActivity(R.layout.activity_net) {
 //        }
 
 
-
-
-
     }
-
 
 
 }

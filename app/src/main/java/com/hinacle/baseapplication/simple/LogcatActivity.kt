@@ -10,6 +10,7 @@ import com.hinacle.base.util.logcat.LogPriority
 import com.hinacle.base.util.logcat.logcat
 import com.hinacle.base.util.onShakeClickListener
 import com.hinacle.base.util.toast.toast
+import com.hinacle.base.widget.dialog.loading.showLoading
 import com.hinacle.baseapplication.R
 import com.hinacle.baseapplication.databinding.ActivityLogcatBinding
 import kotlin.concurrent.thread
@@ -34,6 +35,7 @@ class LogcatActivity : AppActivity(R.layout.activity_logcat) {
     }
 
     fun toastNormal(v: View) {
+        showLoading()
         toast { "普通吐司提示" }
     }
 

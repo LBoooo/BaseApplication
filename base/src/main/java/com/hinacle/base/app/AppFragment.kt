@@ -3,9 +3,11 @@ package com.hinacle.base.app
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import com.hinacle.base.widget.dialog.loading.loadingDialog
 
-abstract class AppFragment(val layoutId: Int) : Fragment(layoutId) {
+abstract class AppFragment(layoutId: Int) : Fragment(layoutId) {
     private var isFirst = true
+    val loadingDialog by loadingDialog()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,4 +35,5 @@ abstract class AppFragment(val layoutId: Int) : Fragment(layoutId) {
 
     // 只调用一次的onResume viewpager2使用 实现懒加载
     open fun lateInit() {}
+
 }
